@@ -17,6 +17,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    if (!_line) {
+        _line = [UIView new];
+        [self addSubview:_line];
+        [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.mas_leading).offset(10);
+            make.trailing.equalTo(self.mas_trailing).offset(-10);
+            make.bottom.equalTo(self.mas_bottom).offset(-2);
+            make.height.equalTo(@0.5);
+        }];
+        _line.backgroundColor = [UIColor whiteColor];
+    }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,16 +38,5 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    if (!_line) {
-        _line = [UIView new];
-        [self addSubview:_line];
-        [_line mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.mas_leading).offset(10);
-            make.trailing.equalTo(self.mas_trailing).offset(-10);
-            make.bottom.equalTo(self.mas_bottom).offset(1);
-            make.height.equalTo(@0.5);
-        }];
-        _line.backgroundColor = [UIColor whiteColor];
-    }
 }
 @end

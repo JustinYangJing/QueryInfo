@@ -1,5 +1,5 @@
 //
-//  BNRSettingVC.h
+//  BNRBaseViewVC.h
 //  QueryInfo
 //
 //  Created by JustinYang on 7/25/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BNRSettingVC : BNRBaseViewVC
+@interface BNRBaseViewVC : UIViewController
 
 @end

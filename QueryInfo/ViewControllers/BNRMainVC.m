@@ -8,6 +8,7 @@
 
 #import "BNRMainVC.h"
 #import "UIViewController+HETAdditions.h"
+#import "BNRSettingVC.h"
 @interface BNRMainVC ()
 
 @end
@@ -41,7 +42,9 @@
     return [[UIBarButtonItem alloc] initWithCustomView:settingBtn];
 }
 -(void)pushSettingVC:(UIButton *)btn{
-
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BNRSettingVC *vc = [sb instantiateViewControllerWithIdentifier:@"SettingVC"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
