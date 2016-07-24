@@ -20,6 +20,7 @@
 		1BF0DBA21D451DA500453672 /* UIImage+HETJPGAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB981D451DA500453672 /* UIImage+HETJPGAdditions.m */; };
 		1BF0DBA31D451DA500453672 /* UIImage+StrethImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB9A1D451DA500453672 /* UIImage+StrethImage.m */; };
 		1BF0DBA41D451DA500453672 /* UIViewController+HETAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB9C1D451DA500453672 /* UIViewController+HETAdditions.m */; };
+		1BF0DBA71D45259F00453672 /* BNRSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBA61D45259F00453672 /* BNRSettingVC.m */; };
 		AA24B6CD12E6091225E5FA9A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE590CD8E1623BC65D5323F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		1BF0DB9A1D451DA500453672 /* UIImage+StrethImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StrethImage.m"; sourceTree = "<group>"; };
 		1BF0DB9B1D451DA500453672 /* UIViewController+HETAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HETAdditions.h"; sourceTree = "<group>"; };
 		1BF0DB9C1D451DA500453672 /* UIViewController+HETAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HETAdditions.m"; sourceTree = "<group>"; };
+		1BF0DBA51D45259F00453672 /* BNRSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRSettingVC.h; sourceTree = "<group>"; };
+		1BF0DBA61D45259F00453672 /* BNRSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSettingVC.m; sourceTree = "<group>"; };
 		2EE590CD8E1623BC65D5323F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 			children = (
 				1BF0DB861D45161800453672 /* BNRMainVC.h */,
 				1BF0DB871D45161800453672 /* BNRMainVC.m */,
+				1BF0DBA51D45259F00453672 /* BNRSettingVC.h */,
+				1BF0DBA61D45259F00453672 /* BNRSettingVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				1BF0DB9E1D451DA500453672 /* NSString+DocumentPath.m in Sources */,
 				1BF0DBA41D451DA500453672 /* UIViewController+HETAdditions.m in Sources */,
 				1BF0DB711D45122C00453672 /* AppDelegate.m in Sources */,
+				1BF0DBA71D45259F00453672 /* BNRSettingVC.m in Sources */,
 				1BF0DBA01D451DA500453672 /* NSString+Util.m in Sources */,
 				1BF0DBA31D451DA500453672 /* UIImage+StrethImage.m in Sources */,
 				1BF0DBA21D451DA500453672 /* UIImage+HETJPGAdditions.m in Sources */,
