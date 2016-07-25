@@ -127,7 +127,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee3-ms-8oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="169"/>
+            <point key="canvasLocation" x="615" y="178"/>
+        </scene>
+        <!--Select FirmVC-->
+        <scene sceneID="VXw-PY-t5m">
+            <objects>
+                <viewController id="LBP-dW-59h" customClass="BNRSelectFirmVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w61-eK-AHR"/>
+                        <viewControllerLayoutGuide type="bottom" id="t17-rx-oZw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h3g-6g-w5e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8zq-G4-Wzc">
+                                <rect key="frame" x="-4" y="64" width="328" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Gdk-BQ-XgY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JLt-NQ-6TV">
+                                <rect key="frame" x="-4" y="94" width="328" height="474"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="companyCell" textLabel="zWW-k8-ihK" style="IBUITableViewCellStyleDefault" id="yat-fz-1Qv">
+                                        <rect key="frame" x="0.0" y="28" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yat-fz-1Qv" id="Vgg-j6-8BO">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zWW-k8-ihK">
+                                                    <rect key="frame" x="15" y="0.0" width="298" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t17-rx-oZw" firstAttribute="top" secondItem="JLt-NQ-6TV" secondAttribute="bottom" id="2eN-eP-0bG"/>
+                            <constraint firstItem="8zq-G4-Wzc" firstAttribute="top" secondItem="w61-eK-AHR" secondAttribute="bottom" constant="44" id="5ds-hI-yFy"/>
+                            <constraint firstItem="JLt-NQ-6TV" firstAttribute="top" secondItem="8zq-G4-Wzc" secondAttribute="bottom" id="ACR-j5-ufE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8zq-G4-Wzc" secondAttribute="trailing" constant="-20" id="Dzs-oG-Qor"/>
+                            <constraint firstItem="8zq-G4-Wzc" firstAttribute="leading" secondItem="h3g-6g-w5e" secondAttribute="leadingMargin" constant="-20" id="IaC-TG-kvI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JLt-NQ-6TV" secondAttribute="trailing" constant="-20" id="Pwt-nk-81g"/>
+                            <constraint firstItem="JLt-NQ-6TV" firstAttribute="leading" secondItem="h3g-6g-w5e" secondAttribute="leadingMargin" constant="-20" id="vdO-9M-5hF"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="8zq-G4-Wzc" id="Z5i-fD-tU1"/>
+                        <outlet property="tableView" destination="JLt-NQ-6TV" id="j9G-RT-Jf3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKL-j7-eo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="835"/>
         </scene>
     </scenes>
 </document>

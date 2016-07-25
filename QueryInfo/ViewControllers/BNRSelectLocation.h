@@ -16,4 +16,6 @@
 
 //传出的
 @property (nonatomic,copy) void (^selcetComplete)(NSString *locationStr, NSString *regionNo);
+
+@property (nonatomic,strong) NSArray *locationArr;
 @end

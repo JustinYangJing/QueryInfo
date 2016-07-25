@@ -15,9 +15,9 @@
 #import "BNRInputVC.h"
 #import "BNRSelectLocation.h"
 typedef NS_ENUM(NSInteger,UserType) {
-    UserTypeDeliverOffice,
     UserTypePolice,
     UserTypePostOffice,
+    UserTypeDeliverOffice,
     UserTypeOthers
 };
 @interface BNRSettingVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -27,7 +27,10 @@ typedef NS_ENUM(NSInteger,UserType) {
 /**
  *  二维数组，存放用户选择的信息
  */
-@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) NSMutableArray     *dataArr;
+
+@property (nonatomic,copy)   NSString            *tips;
+@property (nonatomic,strong) NSMutableDictionary    *userInfo;
 @end
 
 @implementation BNRSettingVC
@@ -53,18 +56,19 @@ typedef NS_ENUM(NSInteger,UserType) {
 }
 -(void)initData{
     self.dataArr = [NSMutableArray arrayWithCapacity:8];
-    NSArray *keys = @[@"用户类型",@"辖区",@"公司",@"姓名"];
-    NSMutableArray *values = [NSMutableArray arrayWithObjects:@"寄递企业",@"点击选择辖区",@"点击选择公司",@"请输入姓名", nil];
-    [self.dataArr addObject:keys];
-    [self.dataArr addObject:values];
-    
-    keys = @[@"用户类型",@"辖区",@"警号"];
-    values = [NSMutableArray arrayWithObjects:@"公安部门",@"点击选择辖区",@"请输入警号", nil];
+    self.userType = UserTypeDeliverOffice;
+    NSArray *keys = @[@"用户类型",@"辖区",@"警号"];
+    NSMutableArray *values = [NSMutableArray arrayWithObjects:@"公安部门",@"点击选择辖区",@"请输入警号", nil];
     [self.dataArr addObject:keys];
     [self.dataArr addObject:values];
     
     keys = @[@"用户类型",@"辖区",@"姓名"];
     values = [NSMutableArray arrayWithObjects:@"邮管部门",@"点击选择辖区",@"请输入姓名", nil];
+    [self.dataArr addObject:keys];
+    [self.dataArr addObject:values];
+    
+    keys = @[@"用户类型",@"辖区",@"公司",@"姓名"];
+    values = [NSMutableArray arrayWithObjects:@"寄递企业",@"点击选择辖区",@"点击选择公司",@"请输入姓名", nil];
     [self.dataArr addObject:keys];
     [self.dataArr addObject:values];
 
@@ -73,7 +77,23 @@ typedef NS_ENUM(NSInteger,UserType) {
     [self.dataArr addObject:keys];
     [self.dataArr addObject:values];
 
+    @weakify(self);
+    [[RACObserve(self, tips) skip:1] subscribeNext:^(id x) {
+        @strongify(self);
+        if (self.tips) {
+            MBProgressHUD *loadHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            loadHUD.labelText = self.tips;
+        }else{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    }];
     
+    NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kUserInfoKey];
+    if (userInfo) {
+        self.userInfo = [NSMutableDictionary dictionaryWithDictionary:userInfo];
+    }else{
+        self.userInfo = [NSMutableDictionary dictionary];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 56;
@@ -98,7 +118,7 @@ typedef NS_ENUM(NSInteger,UserType) {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        HETActionSheet *sheet = [HETActionSheet sheetCancelTitile:@"取消" otherTitles:@[@"其他部门",@"邮管部门",@"公安部门",@"寄递企业"]];
+        HETActionSheet *sheet = [HETActionSheet sheetCancelTitile:@"取消" otherTitles:@[@"其他部门",@"寄递企业",@"邮管部门",@"公安部门"]];
         [sheet showInView:self.view click:^(NSInteger index) {
             self.userType = 3-index;
             [self.tableView reloadData];
@@ -112,17 +132,52 @@ typedef NS_ENUM(NSInteger,UserType) {
         vc.placeHolderStr = values[indexPath.row];
         vc.inputComplete = ^(NSString *str){
             values[keys.count-1] = str;
+            [self.userInfo setObject:str forKey:@"userRealname"];
             [self.tableView reloadData];
         };
         [self.navigationController pushViewController:vc animated:YES];
         
     }
     if (indexPath.row == 1 && self.userType != UserTypeOthers) {
+        [self pushToSelectRegionVC];
+    }
+    if (indexPath.row == 2 && self.userType == UserTypeDeliverOffice) {
+        
+    }
+}
+
+-(void)pushToSelectRegionVC{
+    self.tips = @"正在请求地址";
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    NSDictionary *params = nil;
+    [manager GET:kGetRegionUrl parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.tips = nil;
         BNRSelectLocation *vc = [[BNRSelectLocation alloc] init];
+        vc.locationArr = [responseObject objectForKey:@"regions"];
         vc.selcetComplete = ^(NSString *str , NSString *regionNo){
+            [self.navigationController popToViewController:self animated:YES];
+             NSMutableArray *values = self.dataArr[self.userType*2+1];
+            values[1] = str;
+            [self.userInfo setObject:regionNo forKey:@"regionNo"];
+            [self.tableView reloadData];
         };
         [self.navigationController pushViewController:vc animated:YES];
-    }
+       
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self autoDismissTips:@"请求地址出错"];
+    }];
+
+}
+
+-(void)autoDismissTips:(NSString *)tips{
+    self.tips = nil;
+    self.tips = tips;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.tips = nil;
+    });
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

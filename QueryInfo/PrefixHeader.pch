@@ -17,4 +17,6 @@
 #import "MBProgressHUD.h"
 #import <AFNetworking/AFNetworking.h>
 #import "BNRServerInterface.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "BNRMacro.h"
 #endif /* PrefixHeader_pch */

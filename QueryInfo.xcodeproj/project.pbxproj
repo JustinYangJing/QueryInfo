@@ -32,6 +32,9 @@
 		1BF0DBC41D45770500453672 /* BNRServerInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBC31D45770500453672 /* BNRServerInterface.m */; };
 		1BF0DBC81D457EAE00453672 /* BNRegionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBC61D457EAE00453672 /* BNRegionCell.m */; };
 		1BF0DBC91D457EAE00453672 /* BNRegionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF0DBC71D457EAE00453672 /* BNRegionCell.xib */; };
+		1BF0DBCC1D45A6B800453672 /* CCCommonHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBCB1D45A6B800453672 /* CCCommonHelp.m */; };
+		1BF0DBCF1D45DFB300453672 /* BNRMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBCE1D45DFB300453672 /* BNRMacro.m */; };
+		1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */; };
 		AA24B6CD12E6091225E5FA9A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE590CD8E1623BC65D5323F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,12 @@
 		1BF0DBC51D457EAE00453672 /* BNRegionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRegionCell.h; path = ViewControllers/BNRegionCell.h; sourceTree = "<group>"; };
 		1BF0DBC61D457EAE00453672 /* BNRegionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRegionCell.m; path = ViewControllers/BNRegionCell.m; sourceTree = "<group>"; };
 		1BF0DBC71D457EAE00453672 /* BNRegionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BNRegionCell.xib; path = ViewControllers/BNRegionCell.xib; sourceTree = "<group>"; };
+		1BF0DBCA1D45A6B800453672 /* CCCommonHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCommonHelp.h; sourceTree = "<group>"; };
+		1BF0DBCB1D45A6B800453672 /* CCCommonHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCommonHelp.m; sourceTree = "<group>"; };
+		1BF0DBCD1D45DFB300453672 /* BNRMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRMacro.h; sourceTree = "<group>"; };
+		1BF0DBCE1D45DFB300453672 /* BNRMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRMacro.m; sourceTree = "<group>"; };
+		1BF0DBD01D45E83000453672 /* BNRSelectFirmVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRSelectFirmVC.h; path = ViewControllers/BNRSelectFirmVC.h; sourceTree = "<group>"; };
+		1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRSelectFirmVC.m; path = ViewControllers/BNRSelectFirmVC.m; sourceTree = "<group>"; };
 		2EE590CD8E1623BC65D5323F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +171,8 @@
 				1BF0DBC51D457EAE00453672 /* BNRegionCell.h */,
 				1BF0DBC61D457EAE00453672 /* BNRegionCell.m */,
 				1BF0DBC71D457EAE00453672 /* BNRegionCell.xib */,
+				1BF0DBD01D45E83000453672 /* BNRSelectFirmVC.h */,
+				1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -169,6 +180,8 @@
 		1BF0DB8B1D451DA500453672 /* Helps */ = {
 			isa = PBXGroup;
 			children = (
+				1BF0DBCA1D45A6B800453672 /* CCCommonHelp.h */,
+				1BF0DBCB1D45A6B800453672 /* CCCommonHelp.m */,
 				1BF0DBB71D455FFB00453672 /* HETUIConfig.h */,
 				1BF0DBB81D455FFB00453672 /* HETUIConfig.m */,
 				1BF0DBB41D455EE300453672 /* HETActionSheet.h */,
@@ -187,6 +200,8 @@
 				1BF0DB9C1D451DA500453672 /* UIViewController+HETAdditions.m */,
 				1BF0DBC21D45770500453672 /* BNRServerInterface.h */,
 				1BF0DBC31D45770500453672 /* BNRServerInterface.m */,
+				1BF0DBCD1D45DFB300453672 /* BNRMacro.h */,
+				1BF0DBCE1D45DFB300453672 /* BNRMacro.m */,
 			);
 			path = Helps;
 			sourceTree = "<group>";
@@ -333,10 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF0DBC11D456BFE00453672 /* BNRSelectLocation.m in Sources */,
+				1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */,
 				1BF0DBC41D45770500453672 /* BNRServerInterface.m in Sources */,
 				1BF0DB7A1D45122C00453672 /* QueryInfo.xcdatamodeld in Sources */,
 				1BF0DBB01D4548AA00453672 /* BNRBaseViewVC.m in Sources */,
 				1BF0DBBC1D4563E200453672 /* BNRInputVC.m in Sources */,
+				1BF0DBCC1D45A6B800453672 /* CCCommonHelp.m in Sources */,
 				1BF0DB9E1D451DA500453672 /* NSString+DocumentPath.m in Sources */,
 				1BF0DBAB1D452C0600453672 /* BNRTableViewCell.m in Sources */,
 				1BF0DBA41D451DA500453672 /* UIViewController+HETAdditions.m in Sources */,
@@ -345,6 +362,7 @@
 				1BF0DBA01D451DA500453672 /* NSString+Util.m in Sources */,
 				1BF0DBA31D451DA500453672 /* UIImage+StrethImage.m in Sources */,
 				1BF0DBA21D451DA500453672 /* UIImage+HETJPGAdditions.m in Sources */,
+				1BF0DBCF1D45DFB300453672 /* BNRMacro.m in Sources */,
 				1BF0DBB91D455FFB00453672 /* HETUIConfig.m in Sources */,
 				1BF0DB881D45161800453672 /* BNRMainVC.m in Sources */,
 				1BF0DB6E1D45122C00453672 /* main.m in Sources */,
