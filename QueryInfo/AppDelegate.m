@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "BNRMainVC.h"
+#import "BNRSettingVC.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +18,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kUserInfoKey];
+    if (!userInfo) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        BNRMainVC *vc0 = [sb instantiateViewControllerWithIdentifier:@"mainVC"];
+        BNRSettingVC *vc1 = [sb instantiateViewControllerWithIdentifier:@"SettingVC"];
+        
+        UINavigationController *nav = [sb instantiateViewControllerWithIdentifier:@"navgation"];
+        [nav.navigationBar setTranslucent: YES];
+        [nav.navigationBar setShadowImage: [UIImage new]];
+        [nav.navigationBar setBackgroundImage: [UIImage new]
+                                                      forBarMetrics: UIBarMetricsDefault];
+        
+        [nav.navigationBar setTitleTextAttributes:
+         @{
+           NSForegroundColorAttributeName: [UIColor whiteColor],
+           NSFontAttributeName: [UIFont systemFontOfSize:18],
+           }
+         ];
 
+        nav.viewControllers = @[vc0,vc1];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 

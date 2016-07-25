@@ -9,6 +9,7 @@
 #import "BNRMainVC.h"
 #import "UIViewController+HETAdditions.h"
 #import "BNRSettingVC.h"
+#import "CLZBarScanViewController.h"
 @interface BNRMainVC ()
 
 @end
@@ -44,6 +45,10 @@
 -(void)pushSettingVC:(UIButton *)btn{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BNRSettingVC *vc = [sb instantiateViewControllerWithIdentifier:@"SettingVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)scanHandle:(id)sender {
+    CLZBarScanViewController *vc = [CLZBarScanViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

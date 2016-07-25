@@ -17,3 +17,6 @@
 #define kGetRegionUrl       [NSString stringWithFormat:@"%@getRegionInfo",kServerIP]
 
 #define kQueryCompany       [NSString stringWithFormat:@"%@queryCompanyByName",kServerIP]
+
+
+#define kUploadUserInfo     [NSString stringWithFormat:@"%@uploadUserInfo",kServerIP]

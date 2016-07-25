@@ -14,6 +14,7 @@
 //VC
 #import "BNRInputVC.h"
 #import "BNRSelectLocation.h"
+#import "BNRSelectFirmVC.h"
 typedef NS_ENUM(NSInteger,UserType) {
     UserTypePolice,
     UserTypePostOffice,
@@ -31,6 +32,9 @@ typedef NS_ENUM(NSInteger,UserType) {
 
 @property (nonatomic,copy)   NSString            *tips;
 @property (nonatomic,strong) NSMutableDictionary    *userInfo;
+
+@property (weak, nonatomic) IBOutlet UIButton *completeBtn;
+
 @end
 
 @implementation BNRSettingVC
@@ -53,6 +57,8 @@ typedef NS_ENUM(NSInteger,UserType) {
     self.tableView.tableHeaderView = [UIView new];
     [self.view addSubview:self.tableView];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.completeBtn.layer.cornerRadius = 3.;
 }
 -(void)initData{
     self.dataArr = [NSMutableArray arrayWithCapacity:8];
@@ -88,12 +94,37 @@ typedef NS_ENUM(NSInteger,UserType) {
         }
     }];
     
+    
     NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kUserInfoKey];
     if (userInfo) {
+        NSNumber *index = userInfo[@"userType"];
+        NSMutableArray *values = self.dataArr[index.integerValue*2+1];
+        self.userType = index.integerValue;
+        switch (self.userType) {
+            case UserTypePolice:
+            case UserTypePostOffice:
+                values[1] = SAFE_STRING(userInfo[@"regionName"]);
+                values[2] = SAFE_STRING(userInfo[@"userRealname"]);
+                break;
+            case UserTypeDeliverOffice:
+                values[1] = SAFE_STRING(userInfo[@"regionName"]);
+                values[3] = SAFE_STRING(userInfo[@"userRealname"]);
+                values[2] = SAFE_STRING(userInfo[@"kdmc"]);
+                break;
+            case  UserTypeOthers:
+                values[1] = SAFE_STRING(userInfo[@"deptName"]);
+                values[2] = SAFE_STRING(userInfo[@"userRealname"]);
+                break;
+            default:
+                break;
+        }
+        [self.tableView reloadData];
         self.userInfo = [NSMutableDictionary dictionaryWithDictionary:userInfo];
     }else{
         self.userInfo = [NSMutableDictionary dictionary];
     }
+    
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 56;
@@ -121,6 +152,7 @@ typedef NS_ENUM(NSInteger,UserType) {
         HETActionSheet *sheet = [HETActionSheet sheetCancelTitile:@"取消" otherTitles:@[@"其他部门",@"寄递企业",@"邮管部门",@"公安部门"]];
         [sheet showInView:self.view click:^(NSInteger index) {
             self.userType = 3-index;
+            [self.userInfo setObject:@(self.userType) forKey:@"userType"];
             [self.tableView reloadData];
         }];
     }
@@ -142,7 +174,26 @@ typedef NS_ENUM(NSInteger,UserType) {
         [self pushToSelectRegionVC];
     }
     if (indexPath.row == 2 && self.userType == UserTypeDeliverOffice) {
-        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        BNRSelectFirmVC *vc = [sb instantiateViewControllerWithIdentifier:@"selectFirmVC"];
+        vc.completeCompany = ^(NSDictionary *dic){
+            values[2] = dic[@"kdmc"];
+            [self.tableView reloadData];
+            [self.userInfo addEntriesFromDictionary:dic];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    if (indexPath.row == 1 && self.userType == UserTypeOthers) {
+        BNRInputVC *vc = [[BNRInputVC alloc] init];
+        vc.title = keys[indexPath.row];
+        vc.placeHolderStr = values[indexPath.row];
+        vc.inputComplete = ^(NSString *str){
+            values[1] = str;
+            [self.userInfo setObject:str forKey:@"deptName"];
+            [self.tableView reloadData];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -160,8 +211,9 @@ typedef NS_ENUM(NSInteger,UserType) {
         vc.selcetComplete = ^(NSString *str , NSString *regionNo){
             [self.navigationController popToViewController:self animated:YES];
              NSMutableArray *values = self.dataArr[self.userType*2+1];
-            values[1] = str;
+             values[1] = str;
             [self.userInfo setObject:regionNo forKey:@"regionNo"];
+            [self.userInfo setObject:str forKey:@"regionName"];
             [self.tableView reloadData];
         };
         [self.navigationController pushViewController:vc animated:YES];
@@ -184,6 +236,63 @@ typedef NS_ENUM(NSInteger,UserType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)completeHanlde:(id)sender {
+    NSMutableArray *values = self.dataArr[self.userType*2+1];
+    for (NSString *str in values) {
+        if ([str isEqual:@"请输入部门"] ||
+            [str isEqual:@"请输入姓名"] ||
+            [str isEqual:@"点击选择辖区"] ||
+            [str isEqual:@"请输入警号"]) {
+            [self autoDismissTips:@"请完善您的资料"];
+            return;
+        }
+    }
+    
+    NSDictionary *finallyUserInfo;
+    switch (self.userType) {
+        case UserTypePolice:
+        case UserTypePostOffice:
+            finallyUserInfo = @{@"userType":@(self.userType),@"regionNo":self.userInfo[@"regionNo"],
+                                @"userRealname":self.userInfo[@"userRealname"]};
+            break;
+        case UserTypeDeliverOffice:
+            finallyUserInfo = @{@"userType":@(self.userType),@"regionNo":self.userInfo[@"regionNo"],
+                                @"kdbh":self.userInfo[@"kdbh"],@"kdmc":self.userInfo[@"kdmc"],
+                                @"userRealname":self.userInfo[@"userRealname"]};
+            break;
+        case UserTypeOthers:
+            finallyUserInfo = @{@"userType":@(self.userType),@"deptName":self.userInfo[@"deptName"],
+                                @"userRealname":self.userInfo[@"userRealname"]};
+            break;
+        default:
+            break;
+    }
+    
+    self.tips = @"正在上传资料";
+    [[NSUserDefaults standardUserDefaults] setObject:self.userInfo forKey:kUserInfoKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    
+    [manager GET:kUploadUserInfo parameters:finallyUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.tips = nil;
+        NSString *result = [responseObject objectForKey:@"success"];
+        if ([result isEqualToString:@"true"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self autoDismissTips:@"请求地址出错"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+
+}
 
 
 @end

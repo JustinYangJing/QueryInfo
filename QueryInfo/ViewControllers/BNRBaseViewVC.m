@@ -7,7 +7,7 @@
 //
 
 #import "BNRBaseViewVC.h"
-
+#import "UIViewController+HETAdditions.h"
 @interface BNRBaseViewVC ()
 
 @end
@@ -25,7 +25,10 @@
     [self createBackButton];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self transparentNavigationBar];
+}
 - (void)createBackButton{
     UIImage *backImage = [UIImage imageNamed:@"nav_icon_back"];
     CGRect frame = CGRectMake(0, 0, 30, 30);

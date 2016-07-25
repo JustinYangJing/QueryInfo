@@ -8,7 +8,7 @@
 
 #import "BNRSelectFirmVC.h"
 
-@interface BNRSelectFirmVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface BNRSelectFirmVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initViews];
+    [self queryCompanyWithName:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,9 +30,16 @@
 }
 
 -(void)initViews{
+    self.view.backgroundColor = [UIColor greenColor];
     self.title = @"选择公司";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.searchTextField.placeholder = @"查询";
+    self.searchTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    self.searchTextField.layer.borderWidth = 1.;
+    self.searchTextField.delegate = self;
+    [self.searchTextField addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(void)queryCompanyWithName:(NSString *)name{
@@ -41,13 +49,15 @@
     }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-
-    task = [manager GET:kGetRegionUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSDictionary *parmas = @{@"companyName":SAFE_STRING(name)};
+    task = [manager GET:kQueryCompany parameters:parmas progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        task = nil;
+        self.companyArr = responseObject[@"companys"];
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        task = nil;
     }];
 
 }
@@ -65,6 +75,27 @@
     cell.textLabel.text = dic[@"kdmc"];
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    !self.completeCompany?:self.completeCompany(self.companyArr[indexPath.row]);
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+#pragma mark - textfeild
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)textChange:(UITextField *)textField{
+    UITextRange *selectedRange = [textField markedTextRange];
+    UITextPosition *position = [textField positionFromPosition:selectedRange.start offset:0];//获取高亮部分
+    static NSString *lastStr;
+    if (!position) {
+        if (![lastStr isEqualToString:textField.text]) {
+            lastStr = textField.text;
+            [self queryCompanyWithName:lastStr];
+        }
+    }
 
+}
 @end

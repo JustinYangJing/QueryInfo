@@ -8,3 +8,5 @@ pod "Masonry"
 pod "MBProgressHUD"
 
 pod "ReactiveCocoa"
+
+pod "ZBarSDK"

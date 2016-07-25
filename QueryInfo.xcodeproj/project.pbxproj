@@ -35,6 +35,8 @@
 		1BF0DBCC1D45A6B800453672 /* CCCommonHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBCB1D45A6B800453672 /* CCCommonHelp.m */; };
 		1BF0DBCF1D45DFB300453672 /* BNRMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBCE1D45DFB300453672 /* BNRMacro.m */; };
 		1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */; };
+		1BF0DBD51D46158A00453672 /* CLZBarScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */; };
+		1BF0DBD81D46326900453672 /* BNRInputNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD71D46326900453672 /* BNRInputNumVC.m */; };
 		AA24B6CD12E6091225E5FA9A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE590CD8E1623BC65D5323F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,10 @@
 		1BF0DBCE1D45DFB300453672 /* BNRMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRMacro.m; sourceTree = "<group>"; };
 		1BF0DBD01D45E83000453672 /* BNRSelectFirmVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRSelectFirmVC.h; path = ViewControllers/BNRSelectFirmVC.h; sourceTree = "<group>"; };
 		1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRSelectFirmVC.m; path = ViewControllers/BNRSelectFirmVC.m; sourceTree = "<group>"; };
+		1BF0DBD31D46158A00453672 /* CLZBarScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLZBarScanViewController.h; sourceTree = "<group>"; };
+		1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLZBarScanViewController.m; sourceTree = "<group>"; };
+		1BF0DBD61D46326900453672 /* BNRInputNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRInputNumVC.h; path = ViewControllers/BNRInputNumVC.h; sourceTree = "<group>"; };
+		1BF0DBD71D46326900453672 /* BNRInputNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRInputNumVC.m; path = ViewControllers/BNRInputNumVC.m; sourceTree = "<group>"; };
 		2EE590CD8E1623BC65D5323F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 		1BF0DB891D45161E00453672 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BF0DBD31D46158A00453672 /* CLZBarScanViewController.h */,
+				1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */,
 				1BF0DB861D45161800453672 /* BNRMainVC.h */,
 				1BF0DB871D45161800453672 /* BNRMainVC.m */,
 				1BF0DBA51D45259F00453672 /* BNRSettingVC.h */,
@@ -173,6 +181,8 @@
 				1BF0DBC71D457EAE00453672 /* BNRegionCell.xib */,
 				1BF0DBD01D45E83000453672 /* BNRSelectFirmVC.h */,
 				1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */,
+				1BF0DBD61D46326900453672 /* BNRInputNumVC.h */,
+				1BF0DBD71D46326900453672 /* BNRInputNumVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +366,7 @@
 				1BF0DBCC1D45A6B800453672 /* CCCommonHelp.m in Sources */,
 				1BF0DB9E1D451DA500453672 /* NSString+DocumentPath.m in Sources */,
 				1BF0DBAB1D452C0600453672 /* BNRTableViewCell.m in Sources */,
+				1BF0DBD51D46158A00453672 /* CLZBarScanViewController.m in Sources */,
 				1BF0DBA41D451DA500453672 /* UIViewController+HETAdditions.m in Sources */,
 				1BF0DB711D45122C00453672 /* AppDelegate.m in Sources */,
 				1BF0DBA71D45259F00453672 /* BNRSettingVC.m in Sources */,
@@ -367,6 +378,7 @@
 				1BF0DB881D45161800453672 /* BNRMainVC.m in Sources */,
 				1BF0DB6E1D45122C00453672 /* main.m in Sources */,
 				1BF0DB9D1D451DA500453672 /* NSObject+HETAdditions.m in Sources */,
+				1BF0DBD81D46326900453672 /* BNRInputNumVC.m in Sources */,
 				1BF0DBC81D457EAE00453672 /* BNRegionCell.m in Sources */,
 				1BF0DBB61D455EE300453672 /* HETActionSheet.m in Sources */,
 			);
@@ -484,6 +496,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QueryInfo/PrefixHeader.pch";
 				INFOPLIST_FILE = QueryInfo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Het.QueryInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +511,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QueryInfo/PrefixHeader.pch";
 				INFOPLIST_FILE = QueryInfo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Het.QueryInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

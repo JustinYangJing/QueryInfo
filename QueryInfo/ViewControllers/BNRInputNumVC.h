@@ -1,5 +1,5 @@
 //
-//  BNRSelectFirmVC.h
+//  BNRInputNumVC.h
 //  QueryInfo
 //
 //  Created by JustinYang on 7/25/16.
@@ -8,6 +8,6 @@
 
 #import "BNRBaseViewVC.h"
 
-@interface BNRSelectFirmVC : BNRBaseViewVC
-@property (nonatomic,copy) void (^completeCompany)(NSDictionary *dic);
+@interface BNRInputNumVC : BNRBaseViewVC
+
 @end
