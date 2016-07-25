@@ -66,7 +66,7 @@
     
     [ readview addSubview : _scanView ];
   
-    _manualInputBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, VIEW_HEIGHT-35-20, VIEW_WIDTH-40, 35)];
+    _manualInputBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, VIEW_HEIGHT-35-20-64, VIEW_WIDTH-40, 35)];
     [_manualInputBtn setTitle:@"手动输入" forState:UIControlStateNormal];
     [_manualInputBtn setTitleColor:[HETUIConfig colorFromHexRGB:@"303030"] forState:UIControlStateNormal];
     _manualInputBtn.backgroundColor = [HETUIConfig colorFromHexRGB:@"295bb1"];
@@ -74,7 +74,7 @@
     _manualInputBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     _manualInputBtn.layer.borderWidth = 0.5;
     [readview addSubview:_manualInputBtn];
-    [_manualInputBtn addTarget:self action:@selector(manualInputHandle:) forControlEvents:UIControlEventTouchUpOutside];
+    [_manualInputBtn addTarget:self action:@selector(manualInputHandle:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
