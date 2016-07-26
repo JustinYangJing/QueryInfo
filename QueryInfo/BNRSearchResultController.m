@@ -7,7 +7,8 @@
 //
 
 #import "BNRSearchResultController.h"
-
+#import "LocationItem.h"
+#import "AppDelegate.h"
 @interface BNRSearchResultController ()
 @property (weak, nonatomic) IBOutlet UIButton *searchCompleteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *continueSearchBtn;
@@ -63,12 +64,17 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    LocationItem *locationInfo = delegate.currentLocation;
+    double latitude = locationInfo.latitude;
+    double logtitude = locationInfo.longitude;
     
     NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults]objectForKey:kUserInfoKey];
     NSMutableDictionary *mutaUserInfo = [[NSMutableDictionary alloc]initWithDictionary:userInfo];
     
     [mutaUserInfo setObject:textNum forKey:@"expressNo"];
-    
+    [mutaUserInfo setObject:[NSNumber numberWithDouble:latitude] forKey:@"latitude"];
+    [mutaUserInfo setObject:[NSNumber numberWithDouble:logtitude] forKey:@"longitude"];
 
     [manager GET:kCheckExpress parameters:mutaUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
         
