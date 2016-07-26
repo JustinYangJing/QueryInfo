@@ -24,13 +24,12 @@
     [btn addTarget:self action:@selector(complete) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(16, 100, self.view.frame.size.width-32, 40)];
     self.textField.placeholder = self.placeHolderStr;
     [self.textField becomeFirstResponder];
     [self.view addSubview:self.textField];
-    self.textField.layer.borderColor = [UIColor grayColor].CGColor;
-    self.textField.layer.borderWidth = 1.0;
-    
+    self.textField.borderStyle = UITextBorderStyleRoundedRect;
+    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
 }
 
@@ -44,7 +43,7 @@
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
         hud.labelText = @"输入不符合要求";
         [hud show:YES];
-        [hud hide:YES afterDelay:3];
+        [hud hide:YES afterDelay:1];
        
         return;
         

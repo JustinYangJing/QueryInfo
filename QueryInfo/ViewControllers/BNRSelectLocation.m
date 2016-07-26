@@ -39,7 +39,8 @@
     self.headLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
     self.headLabel.text = self.selectedLocation;
     self.headLabel.font = [UIFont systemFontOfSize:13];
-    self.headLabel.backgroundColor = [UIColor grayColor];
+    self.headLabel.backgroundColor = [UIColor clearColor];
+    self.headLabel.textColor = [HETUIConfig colorFromHexRGB:@"555555" alpha:0.5];
     self.tableView.tableHeaderView = self.headLabel;
 }
 

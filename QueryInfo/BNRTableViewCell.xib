@@ -18,7 +18,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-l2-QS3">
                         <rect key="frame" x="18" y="5" width="26" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.6705882352941176" green="0.8784313725490196" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7u-n3-g9k">
@@ -31,7 +31,7 @@
                         <rect key="frame" x="280" y="28.5" width="23" height="23"/>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.1137254902" green="0.80000000000000004" blue="0.69411764710000001" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="Z7u-n3-g9k" firstAttribute="leading" secondItem="xO8-l2-QS3" secondAttribute="leading" id="2ER-jr-NRU"/>
                     <constraint firstItem="Z7u-n3-g9k" firstAttribute="top" secondItem="xO8-l2-QS3" secondAttribute="bottom" constant="8" id="NKf-zz-ETl"/>

@@ -58,6 +58,8 @@ typedef NS_ENUM(NSInteger,UserType) {
     self.tableView.tableHeaderView = [UIView new];
     self.tableView.scrollEnabled = false;
     [self.view addSubview:self.tableView];
+    self.tableView.layer.cornerRadius = 3.;
+    self.tableView.backgroundColor = [HETUIConfig colorFromHexRGB:@"003361" alpha:0.6];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.completeBtn.layer.cornerRadius = 3.;
@@ -129,14 +131,14 @@ typedef NS_ENUM(NSInteger,UserType) {
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 56;
+    return 64;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSArray *arr = self.dataArr[self.userType*2];
-    self.tableView.frame = CGRectMake(15, 100, self.view.frame.size.width-30, 56*arr.count);
+    self.tableView.frame = CGRectMake(15, 100, self.view.frame.size.width-30, 64*arr.count);
     return arr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -146,6 +148,7 @@ typedef NS_ENUM(NSInteger,UserType) {
     NSArray *values = self.dataArr[self.userType*2+1];
     cell.contentLabel.text = values[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -270,30 +273,30 @@ typedef NS_ENUM(NSInteger,UserType) {
             break;
     }
     
-    self.tips = @"正在上传资料";
+    
     [[NSUserDefaults standardUserDefaults] setObject:self.userInfo forKey:kUserInfoKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    
-    [manager GET:kUploadUserInfo parameters:finallyUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.tips = nil;
-        NSNumber *result = [responseObject objectForKey:@"success"];
-        if (result.boolValue ) {
-            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
-            [self.navigationController popViewControllerAnimated:YES];
-        }else{
-            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self autoDismissTips:@"请求地址出错"];
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
+//    self.tips = @"正在上传资料";
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+//    
+//    [manager GET:kUploadUserInfo parameters:finallyUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        self.tips = nil;
+//        NSNumber *result = [responseObject objectForKey:@"success"];
+//        if (result.boolValue ) {
+//            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }else{
+//            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        [self autoDismissTips:@"请求地址出错"];
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }];
 
 }
 

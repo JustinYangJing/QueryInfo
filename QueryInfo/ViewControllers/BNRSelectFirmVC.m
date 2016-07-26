@@ -30,14 +30,23 @@
 }
 
 -(void)initViews{
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor greenColor];
     self.title = @"选择公司";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    self.tableView.tableFooterView = [UIView new];
     
     self.searchTextField.placeholder = @"查询";
-    self.searchTextField.layer.borderColor = [UIColor grayColor].CGColor;
-    self.searchTextField.layer.borderWidth = 1.;
+    self.searchTextField.backgroundColor = [HETUIConfig colorFromHexRGB:@"e5e5e5"];
+    self.searchTextField.textColor = [HETUIConfig colorFromHexRGB:@"777777"];
     self.searchTextField.delegate = self;
     [self.searchTextField addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
 }

@@ -24,4 +24,13 @@
     !self.nextClicked?:self.nextClicked();
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 @end

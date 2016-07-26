@@ -23,7 +23,7 @@
         [_line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.mas_leading).offset(10);
             make.trailing.equalTo(self.mas_trailing).offset(-10);
-            make.bottom.equalTo(self.mas_bottom).offset(-2);
+            make.bottom.equalTo(self.mas_bottom).offset(-10);
             make.height.equalTo(@0.5);
         }];
         _line.backgroundColor = [UIColor whiteColor];
