@@ -14,3 +14,7 @@
  *  key有regionNo,userType,userRealname,kdbh,kdmc,deptName
  */
 extern NSString     *kUserInfoKey;
+
+extern NSString     *kUserIgnoreVersionKey ;
+
+extern NSString     *kAppItuneStoreAddress;

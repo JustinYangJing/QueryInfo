@@ -8,4 +8,8 @@
 
 #import "BNRMacro.h"
 
-NSString     *kUserInfoKey      =       @"userInfoKey";
+NSString     *kUserInfoKey          =       @"userInfoKey";
+
+NSString     *kUserIgnoreVersionKey = @"userIgnoreVersionKey";
+
+NSString     *kAppItuneStoreAddress = @"www.baidu.com";

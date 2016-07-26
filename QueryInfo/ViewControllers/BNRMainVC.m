@@ -11,6 +11,7 @@
 #import "BNRSettingVC.h"
 #import "CLZBarScanViewController.h"
 #import "updataViewController.h"
+#import "YYKit.h"
 @interface BNRMainVC ()
 
 @end
@@ -25,7 +26,7 @@
     backImageView.image = [UIImage imageNamed:@"bg.png"];
     [self.view insertSubview:backImageView atIndex:0];
     
-//    [self getVersionInfo];
+    [self getVersionInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +80,39 @@
         NSString *versionNumber = [responseObject objectForKey:@"versionNumber"];
         NSArray *versionArray = [versionNumber componentsSeparatedByString:@"."];
         NSLog(@"responseObject %@", responseObject);
+        
+        NSDictionary *infoDic = [[NSBundle mainBundle]infoDictionary];
+        NSString *app_Version = [infoDic objectForKey:@"CFBundleShortVersionString"];
+        NSArray *currentArray = [app_Version componentsSeparatedByString:@"."];
+        NSLog(@"app_Version %@", app_Version);
+        
+
+        NSString *ignoreVersion = [[NSUserDefaults standardUserDefaults]objectForKey:kUserIgnoreVersionKey];
+        if (ignoreVersion != nil || [ignoreVersion isEqualToString:versionNumber]) {
+            return ;
+        }
+        
+        if (versionArray.count != currentArray.count) {
+            return ;
+        }
+        
+        int i = 0;
+        BOOL isneedUpdate = false;
+        for (; i < versionArray.count; i++) {
+            NSString *lastMajorVersion = versionArray[i];
+            NSString *currentMajorVersion = currentArray[i];
+            NSNumber *lastMajorVersionNum = [NSNumber numberWithString:lastMajorVersion];
+            NSNumber *currentMajorVersionNum = [NSNumber numberWithString:currentMajorVersion];
+            if (lastMajorVersionNum.integerValue > currentMajorVersionNum.integerValue) {
+                isneedUpdate = true;
+                break;
+            }
+        }
+        
+        if (!isneedUpdate) {
+            return;
+        }
+        
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         updataViewController *vc = [sb instantiateViewControllerWithIdentifier:@"updataViewController"];

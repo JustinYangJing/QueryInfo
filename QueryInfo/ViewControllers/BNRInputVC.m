@@ -40,14 +40,27 @@
 }
 
 -(void)complete{
-    if (self.textField.text.length < 1) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-        hud.labelText = @"输入不符合要求";
-        [hud show:YES];
-        [hud hide:YES afterDelay:3];
+    
+    if ([self.placeHolderStr isEqualToString:@"请输入警号"]) {
+        if (self.textField.text.length != 6) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+            hud.labelText = @"请输入6位警号";
+            [hud show:YES];
+            [hud hide:YES afterDelay:1];
+            
+            return;
+            
+        }
+    }else{
+        if (self.textField.text.length < 1 || self.textField.text.length > 20) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+            hud.labelText = @"输入不符合要求";
+            [hud show:YES];
+            [hud hide:YES afterDelay:1];
        
-        return;
+            return;
         
+        }
     }
     !self.inputComplete?:self.inputComplete(self.textField.text);
     [self.navigationController popViewControllerAnimated:YES];

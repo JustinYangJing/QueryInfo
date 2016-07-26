@@ -16,6 +16,7 @@
 #import "CLZBarScanViewController.h"
 #import "UIViewController+HETAdditions.h"
 #import "BNRInputNumVC.h"
+#import "BNRSearchResultController.h"
 @interface CLZBarScanViewController()<ZBarReaderDelegate,ZBarReaderViewDelegate>
 {
     UIImageView* scanZomeBack;
@@ -267,13 +268,25 @@
         NSString * resultStr = symbol.data;
         NSLog(@"scan resultStr %@",resultStr);
         
+        if (resultStr.length > 5) {
+            [self toSearchResultViewControllerWithContent:resultStr];
+            break;
+        }
         
     }
-    
   
-
-    
 }
+
+- (void)toSearchResultViewControllerWithContent:(NSString *)text
+{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BNRSearchResultController *vc0 = [sb instantiateViewControllerWithIdentifier:@"BNRSearchResultController"];
+    vc0.searchStr = text;
+    
+    [self.navigationController pushViewController:vc0 animated:true];
+}
+
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {

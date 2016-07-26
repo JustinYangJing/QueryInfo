@@ -48,6 +48,7 @@
 {
     [super viewWillAppear:animated];
     self.textFeild.text = @"";
+    [self.textFeild becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,15 +61,11 @@
 }
 
 - (IBAction)comfirmHandle:(id)sender {
-    
-    
-    
-    if (self.textFeild.text.length < 5) {
+    if (self.textFeild.text.length < 5 || self.textFeild.text.length > 30) {
         [self autoDismissTips:@"输入不符合要求"];
         return;
     }
     [self toSearchResultViewController];
-
 }
 
 -(void)autoDismissTips:(NSString *)tips{
