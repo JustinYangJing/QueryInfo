@@ -12,11 +12,16 @@
 
 #define SAFE_NUMBER(value) (![value isKindOfClass: [NSNumber class]] ? @(-1) : value)
 
-#define kServerIP   @"http://115.236.32.253:39175/qs/app/"
+//#define kServerIP   @"http://115.236.32.253:39175/qs/app/"
 
+#define kServerIP   @"http://61.164.44.169:39175/qs/app/"
 #define kGetRegionUrl       [NSString stringWithFormat:@"%@getRegionInfo",kServerIP]
 
 #define kQueryCompany       [NSString stringWithFormat:@"%@queryCompanyByName",kServerIP]
 
 
 #define kUploadUserInfo     [NSString stringWithFormat:@"%@uploadUserInfo",kServerIP]
+
+#define kVersionNumber     [NSString stringWithFormat:@"%@getLatestIosVerInfo",kServerIP]
+
+#define kCheckExpress     [NSString stringWithFormat:@"%@checkExpress",kServerIP]

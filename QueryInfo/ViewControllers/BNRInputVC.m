@@ -40,7 +40,7 @@
 }
 
 -(void)complete{
-    if (self.textField.text.length < 6) {
+    if (self.textField.text.length < 1) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
         hud.labelText = @"输入不符合要求";
         [hud show:YES];

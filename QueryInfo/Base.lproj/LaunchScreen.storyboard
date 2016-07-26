@@ -3,25 +3,111 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-KQ-fY3">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="9oh-Wc-YJq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9oh-Wc-YJq" secondAttribute="height" multiplier="97:69" id="aha-O4-Tya"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aha-O4-Tya"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aha-O4-Tya"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9oh-Wc-YJq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-10" id="5cj-5I-r6U"/>
+                            <constraint firstItem="9oh-Wc-YJq" firstAttribute="leading" secondItem="fMK-KQ-fY3" secondAttribute="trailing" constant="-380" id="6nV-OR-41L"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="9sb-7b-8jx"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="top" secondItem="9oh-Wc-YJq" secondAttribute="bottom" constant="-308" id="Apc-3b-ehy"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="AvH-bq-yaU"/>
+                            <constraint firstItem="9oh-Wc-YJq" firstAttribute="centerX" secondItem="fMK-KQ-fY3" secondAttribute="centerX" id="Bgv-ON-yfI"/>
+                            <constraint firstItem="9oh-Wc-YJq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="110" id="DAd-9f-1v2"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="leading" secondItem="9oh-Wc-YJq" secondAttribute="trailing" constant="-348" id="EMI-50-rfy"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fMK-KQ-fY3" secondAttribute="bottom" id="Po0-qS-Td2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9oh-Wc-YJq" secondAttribute="trailing" constant="-10" id="g4R-Hs-Ejb"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="top" secondItem="9oh-Wc-YJq" secondAttribute="bottom" constant="-308" id="hPD-1V-Xn4"/>
+                            <constraint firstItem="fMK-KQ-fY3" firstAttribute="leading" secondItem="9oh-Wc-YJq" secondAttribute="trailing" constant="-348" id="hSU-f0-kUF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fMK-KQ-fY3" secondAttribute="trailing" constant="-20" id="qbK-2W-bK5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fMK-KQ-fY3"/>
+                                <exclude reference="9oh-Wc-YJq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Po0-qS-Td2"/>
+                                <exclude reference="5cj-5I-r6U"/>
+                                <exclude reference="6nV-OR-41L"/>
+                                <exclude reference="Bgv-ON-yfI"/>
+                                <exclude reference="DAd-9f-1v2"/>
+                                <exclude reference="g4R-Hs-Ejb"/>
+                                <exclude reference="9sb-7b-8jx"/>
+                                <exclude reference="Apc-3b-ehy"/>
+                                <exclude reference="AvH-bq-yaU"/>
+                                <exclude reference="EMI-50-rfy"/>
+                                <exclude reference="hPD-1V-Xn4"/>
+                                <exclude reference="hSU-f0-kUF"/>
+                                <exclude reference="qbK-2W-bK5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="fMK-KQ-fY3"/>
+                                <include reference="9oh-Wc-YJq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Po0-qS-Td2"/>
+                                <include reference="5cj-5I-r6U"/>
+                                <exclude reference="6nV-OR-41L"/>
+                                <include reference="Bgv-ON-yfI"/>
+                                <include reference="DAd-9f-1v2"/>
+                                <include reference="g4R-Hs-Ejb"/>
+                                <include reference="9sb-7b-8jx"/>
+                                <exclude reference="Apc-3b-ehy"/>
+                                <include reference="AvH-bq-yaU"/>
+                                <exclude reference="EMI-50-rfy"/>
+                                <exclude reference="hPD-1V-Xn4"/>
+                                <exclude reference="hSU-f0-kUF"/>
+                                <include reference="qbK-2W-bK5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg.png" width="1080" height="1920"/>
+        <image name="logo_01.png" width="972" height="690"/>
+    </resources>
 </document>

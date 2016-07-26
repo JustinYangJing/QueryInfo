@@ -8,6 +8,7 @@
 
 #import "BNRInputNumVC.h"
 #import "CLZBarScanViewController.h"
+#import "BNRSearchResultController.h"
 @interface BNRInputNumVC ()
 @property (weak, nonatomic) IBOutlet UIButton *scanHandle;
 @property (weak, nonatomic) IBOutlet UIButton *comfirmBtn;
@@ -42,6 +43,13 @@
         }
     }];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.textFeild.text = @"";
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,12 +60,15 @@
 }
 
 - (IBAction)comfirmHandle:(id)sender {
-    if (self.textFeild.text.length < 8) {
+    
+    
+    
+    if (self.textFeild.text.length < 5) {
         [self autoDismissTips:@"输入不符合要求"];
         return;
     }
-    
-    
+    [self toSearchResultViewController];
+
 }
 
 -(void)autoDismissTips:(NSString *)tips{
@@ -67,4 +78,16 @@
         self.tips = nil;
     });
 }
+
+- (void)toSearchResultViewController
+{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BNRSearchResultController *vc0 = [sb instantiateViewControllerWithIdentifier:@"BNRSearchResultController"];
+    vc0.searchStr = self.textFeild.text;
+
+    [self.navigationController pushViewController:vc0 animated:true];
+}
+
+
 @end

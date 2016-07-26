@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createBackButton];
+    
+    UIImageView *backImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    backImageView.image = [UIImage imageNamed:@"bg.png"];
+    [self.view insertSubview:backImageView atIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

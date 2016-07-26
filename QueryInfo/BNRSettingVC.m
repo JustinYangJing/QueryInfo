@@ -47,14 +47,15 @@ typedef NS_ENUM(NSInteger,UserType) {
 }
 -(void)initViews{
     self.title = @"设置用户信息";
-    self.view.backgroundColor  = [UIColor greenColor];
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 100, self.view.frame.size.width-30, 56*4) style:UITableViewStylePlain];
+   // self.view.backgroundColor  = [UIColor greenColor];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 64+21, self.view.frame.size.width-30, 56*4) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"BNRTableViewCell" bundle:nil] forCellReuseIdentifier:@"settingCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.tableHeaderView = [UIView new];
+    self.tableView.scrollEnabled = false;
     [self.view addSubview:self.tableView];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -280,8 +281,9 @@ typedef NS_ENUM(NSInteger,UserType) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.tips = nil;
-        NSString *result = [responseObject objectForKey:@"success"];
-        if ([result isEqualToString:@"true"]) {
+        NSNumber *result = [responseObject objectForKey:@"success"];
+        if (result.boolValue ) {
+            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];

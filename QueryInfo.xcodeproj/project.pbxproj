@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098555323DFFD1E850F3FE6A /* libPods-QueryInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF375C3719449C0693830BCA /* libPods-QueryInfo.a */; };
+		19B7D3971D465BEA003FEDE5 /* BNRSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B7D3961D465BEA003FEDE5 /* BNRSearchResultController.m */; };
+		19B7D3991D467409003FEDE5 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3981D467409003FEDE5 /* bg.png */; };
+		19B7D3A41D46CF87003FEDE5 /* biaoqing01.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D39B1D46CF87003FEDE5 /* biaoqing01.png */; };
+		19B7D3A51D46CF87003FEDE5 /* biaoqing02.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D39C1D46CF87003FEDE5 /* biaoqing02.png */; };
+		19B7D3A61D46CF87003FEDE5 /* icon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D39D1D46CF87003FEDE5 /* icon_01.png */; };
+		19B7D3A71D46CF87003FEDE5 /* icon_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D39E1D46CF87003FEDE5 /* icon_02.png */; };
+		19B7D3A81D46CF87003FEDE5 /* icon_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D39F1D46CF87003FEDE5 /* icon_03.png */; };
+		19B7D3A91D46CF87003FEDE5 /* icon_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A01D46CF87003FEDE5 /* icon_04.png */; };
+		19B7D3AA1D46CF87003FEDE5 /* logo_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A11D46CF87003FEDE5 /* logo_01.png */; };
+		19B7D3AB1D46CF87003FEDE5 /* logo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A21D46CF87003FEDE5 /* logo_02.png */; };
+		19B7D3AC1D46CF87003FEDE5 /* saomiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A31D46CF87003FEDE5 /* saomiao.png */; };
+		19B7D3AF1D46DCF4003FEDE5 /* updataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B7D3AE1D46DCF4003FEDE5 /* updataViewController.m */; };
 		1BF0DB6E1D45122C00453672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB6D1D45122C00453672 /* main.m */; };
 		1BF0DB711D45122C00453672 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB701D45122C00453672 /* AppDelegate.m */; };
 		1BF0DB771D45122C00453672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF0DB751D45122C00453672 /* Main.storyboard */; };
@@ -37,10 +50,23 @@
 		1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */; };
 		1BF0DBD51D46158A00453672 /* CLZBarScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */; };
 		1BF0DBD81D46326900453672 /* BNRInputNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD71D46326900453672 /* BNRInputNumVC.m */; };
-		AA24B6CD12E6091225E5FA9A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE590CD8E1623BC65D5323F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19B7D3951D465BEA003FEDE5 /* BNRSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRSearchResultController.h; sourceTree = "<group>"; };
+		19B7D3961D465BEA003FEDE5 /* BNRSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSearchResultController.m; sourceTree = "<group>"; };
+		19B7D3981D467409003FEDE5 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		19B7D39B1D46CF87003FEDE5 /* biaoqing01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = biaoqing01.png; sourceTree = "<group>"; };
+		19B7D39C1D46CF87003FEDE5 /* biaoqing02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = biaoqing02.png; sourceTree = "<group>"; };
+		19B7D39D1D46CF87003FEDE5 /* icon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_01.png; sourceTree = "<group>"; };
+		19B7D39E1D46CF87003FEDE5 /* icon_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_02.png; sourceTree = "<group>"; };
+		19B7D39F1D46CF87003FEDE5 /* icon_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_03.png; sourceTree = "<group>"; };
+		19B7D3A01D46CF87003FEDE5 /* icon_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_04.png; sourceTree = "<group>"; };
+		19B7D3A11D46CF87003FEDE5 /* logo_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_01.png; sourceTree = "<group>"; };
+		19B7D3A21D46CF87003FEDE5 /* logo_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_02.png; sourceTree = "<group>"; };
+		19B7D3A31D46CF87003FEDE5 /* saomiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saomiao.png; sourceTree = "<group>"; };
+		19B7D3AD1D46DCF4003FEDE5 /* updataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updataViewController.h; sourceTree = "<group>"; };
+		19B7D3AE1D46DCF4003FEDE5 /* updataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = updataViewController.m; sourceTree = "<group>"; };
 		1BF0DB691D45122C00453672 /* QueryInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueryInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF0DB6D1D45122C00453672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BF0DB6F1D45122C00453672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +125,9 @@
 		2EE590CD8E1623BC65D5323F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		73F72F845CAFA9EDC0E6C85D /* Pods-QueryInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		7543272F4C879AFC51203E6B /* Pods-QueryInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.release.xcconfig"; sourceTree = "<group>"; };
+		CF375C3719449C0693830BCA /* libPods-QueryInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueryInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +135,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24B6CD12E6091225E5FA9A /* libPods.a in Frameworks */,
+				098555323DFFD1E850F3FE6A /* libPods-QueryInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19B7D39A1D46CF78003FEDE5 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				19B7D39B1D46CF87003FEDE5 /* biaoqing01.png */,
+				19B7D39C1D46CF87003FEDE5 /* biaoqing02.png */,
+				19B7D39D1D46CF87003FEDE5 /* icon_01.png */,
+				19B7D39E1D46CF87003FEDE5 /* icon_02.png */,
+				19B7D39F1D46CF87003FEDE5 /* icon_03.png */,
+				19B7D3A01D46CF87003FEDE5 /* icon_04.png */,
+				19B7D3A11D46CF87003FEDE5 /* logo_01.png */,
+				19B7D3A21D46CF87003FEDE5 /* logo_02.png */,
+				19B7D3A31D46CF87003FEDE5 /* saomiao.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		1BF0DB601D45122C00453672 = {
 			isa = PBXGroup;
 			children = (
@@ -134,12 +179,14 @@
 		1BF0DB6B1D45122C00453672 /* QueryInfo */ = {
 			isa = PBXGroup;
 			children = (
+				19B7D39A1D46CF78003FEDE5 /* Image */,
 				1BF0DB8B1D451DA500453672 /* Helps */,
 				1BF0DB891D45161E00453672 /* ViewControllers */,
 				1BF0DB6F1D45122C00453672 /* AppDelegate.h */,
 				1BF0DB701D45122C00453672 /* AppDelegate.m */,
 				1BF0DB751D45122C00453672 /* Main.storyboard */,
 				1BF0DB7B1D45122C00453672 /* Assets.xcassets */,
+				19B7D3981D467409003FEDE5 /* bg.png */,
 				1BF0DB7D1D45122C00453672 /* LaunchScreen.storyboard */,
 				1BF0DB801D45122C00453672 /* Info.plist */,
 				1BF0DB781D45122C00453672 /* QueryInfo.xcdatamodeld */,
@@ -183,6 +230,10 @@
 				1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */,
 				1BF0DBD61D46326900453672 /* BNRInputNumVC.h */,
 				1BF0DBD71D46326900453672 /* BNRInputNumVC.m */,
+				19B7D3951D465BEA003FEDE5 /* BNRSearchResultController.h */,
+				19B7D3961D465BEA003FEDE5 /* BNRSearchResultController.m */,
+				19B7D3AD1D46DCF4003FEDE5 /* updataViewController.h */,
+				19B7D3AE1D46DCF4003FEDE5 /* updataViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -220,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				2EE590CD8E1623BC65D5323F /* libPods.a */,
+				CF375C3719449C0693830BCA /* libPods-QueryInfo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,6 +281,8 @@
 			children = (
 				5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */,
 				51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */,
+				73F72F845CAFA9EDC0E6C85D /* Pods-QueryInfo.debug.xcconfig */,
+				7543272F4C879AFC51203E6B /* Pods-QueryInfo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -240,12 +294,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BF0DB831D45122C00453672 /* Build configuration list for PBXNativeTarget "QueryInfo" */;
 			buildPhases = (
-				C4D70A5586FCC30E5E14FB42 /* Check Pods Manifest.lock */,
+				C4D70A5586FCC30E5E14FB42 /* [CP] Check Pods Manifest.lock */,
 				1BF0DB651D45122C00453672 /* Sources */,
 				1BF0DB661D45122C00453672 /* Frameworks */,
 				1BF0DB671D45122C00453672 /* Resources */,
-				A7CBB3A3434F8AD7FEAE07A6 /* Embed Pods Frameworks */,
-				3D37F95FF63F1599FB0D1E0C /* Copy Pods Resources */,
+				A7CBB3A3434F8AD7FEAE07A6 /* [CP] Embed Pods Frameworks */,
+				3D37F95FF63F1599FB0D1E0C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,55 +348,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF0DB7F1D45122C00453672 /* LaunchScreen.storyboard in Resources */,
+				19B7D3A81D46CF87003FEDE5 /* icon_03.png in Resources */,
 				1BF0DB7C1D45122C00453672 /* Assets.xcassets in Resources */,
 				1BF0DBBE1D456B6000453672 /* city.plist in Resources */,
+				19B7D3A51D46CF87003FEDE5 /* biaoqing02.png in Resources */,
+				19B7D3AA1D46CF87003FEDE5 /* logo_01.png in Resources */,
 				1BF0DBC91D457EAE00453672 /* BNRegionCell.xib in Resources */,
+				19B7D3AC1D46CF87003FEDE5 /* saomiao.png in Resources */,
+				19B7D3A71D46CF87003FEDE5 /* icon_02.png in Resources */,
+				19B7D3A91D46CF87003FEDE5 /* icon_04.png in Resources */,
+				19B7D3AB1D46CF87003FEDE5 /* logo_02.png in Resources */,
+				19B7D3A41D46CF87003FEDE5 /* biaoqing01.png in Resources */,
+				19B7D3991D467409003FEDE5 /* bg.png in Resources */,
 				1BF0DBAC1D452C0600453672 /* BNRTableViewCell.xib in Resources */,
 				1BF0DB771D45122C00453672 /* Main.storyboard in Resources */,
+				19B7D3A61D46CF87003FEDE5 /* icon_01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D37F95FF63F1599FB0D1E0C /* Copy Pods Resources */ = {
+		3D37F95FF63F1599FB0D1E0C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A7CBB3A3434F8AD7FEAE07A6 /* Embed Pods Frameworks */ = {
+		A7CBB3A3434F8AD7FEAE07A6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4D70A5586FCC30E5E14FB42 /* Check Pods Manifest.lock */ = {
+		C4D70A5586FCC30E5E14FB42 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +424,7 @@
 				1BF0DBC11D456BFE00453672 /* BNRSelectLocation.m in Sources */,
 				1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */,
 				1BF0DBC41D45770500453672 /* BNRServerInterface.m in Sources */,
+				19B7D3971D465BEA003FEDE5 /* BNRSearchResultController.m in Sources */,
 				1BF0DB7A1D45122C00453672 /* QueryInfo.xcdatamodeld in Sources */,
 				1BF0DBB01D4548AA00453672 /* BNRBaseViewVC.m in Sources */,
 				1BF0DBBC1D4563E200453672 /* BNRInputVC.m in Sources */,
@@ -377,6 +442,7 @@
 				1BF0DBB91D455FFB00453672 /* HETUIConfig.m in Sources */,
 				1BF0DB881D45161800453672 /* BNRMainVC.m in Sources */,
 				1BF0DB6E1D45122C00453672 /* main.m in Sources */,
+				19B7D3AF1D46DCF4003FEDE5 /* updataViewController.m in Sources */,
 				1BF0DB9D1D451DA500453672 /* NSObject+HETAdditions.m in Sources */,
 				1BF0DBD81D46326900453672 /* BNRInputNumVC.m in Sources */,
 				1BF0DBC81D457EAE00453672 /* BNRegionCell.m in Sources */,
@@ -490,7 +556,7 @@
 		};
 		1BF0DB841D45122C00453672 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A2AB240F3B2B942CB30ED17 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 73F72F845CAFA9EDC0E6C85D /* Pods-QueryInfo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -498,14 +564,14 @@
 				INFOPLIST_FILE = QueryInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Het.QueryInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.runsdata.z1zren.guangxi.360zhao.iphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		1BF0DB851D45122C00453672 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51601A4D5AFD0653AE280EA9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7543272F4C879AFC51203E6B /* Pods-QueryInfo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -513,7 +579,7 @@
 				INFOPLIST_FILE = QueryInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Het.QueryInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.runsdata.z1zren.guangxi.360zhao.iphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
