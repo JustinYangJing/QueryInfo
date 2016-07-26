@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BNRMainVC.h"
 #import "BNRSettingVC.h"
+#import "LocationManager.h"
 @interface AppDelegate ()
 
 @end
@@ -37,6 +38,7 @@
            }
          ];
 
+        [[LocationManager sharedInstance]startLocate];
         nav.viewControllers = @[vc0,vc1];
         self.window.rootViewController = nav;
         [self.window makeKeyAndVisible];

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "LocationItem.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +18,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, copy) LocationItem *currentLocation;//定位
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
