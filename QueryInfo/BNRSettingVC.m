@@ -49,6 +49,7 @@ typedef NS_ENUM(NSInteger,UserType) {
     self.title = @"设置用户信息";
    // self.view.backgroundColor  = [UIColor greenColor];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 64+21, self.view.frame.size.width-30, 56*4) style:UITableViewStylePlain];
+    self.tableView.layer.cornerRadius = 3.;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"BNRTableViewCell" bundle:nil] forCellReuseIdentifier:@"settingCell"];
