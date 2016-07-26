@@ -11,7 +11,10 @@
 #import "BNRSettingVC.h"
 #import "CLZBarScanViewController.h"
 #import "updataViewController.h"
+//#import "YYKit.h"
 @interface BNRMainVC ()
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 
 @end
 
@@ -25,16 +28,44 @@
     backImageView.image = [UIImage imageNamed:@"bg.png"];
     [self.view insertSubview:backImageView atIndex:0];
     
-//    [self getVersionInfo];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self getVersionInfo];
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self transparentNavigationBar];
+    [self initData];
+}
+-(void)initData{
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kCheckCount];
+    if (!dic) {
+        [self setCountWithDayCount:0 monthCount:0];
+    }
+    NSString *today = [[NSDate date] LocalDayISO8601String];
+    NSString *saveDay = dic[@"date"];
+    if (![saveDay isEqualToString:today]) {
+        NSInteger dayCount = 0;
+        NSInteger monthCOunt = 0;
+        if ([[saveDay substringToIndex:7] isEqualToString:[today substringToIndex:7]]) {
+            monthCOunt = [dic[@"monthCont"] integerValue];
+        }
+        [self setCountWithDayCount:dayCount monthCount:monthCOunt];
+        dic = @{@"date":today,@"dayCount":@(0),@"monthCount":@(monthCOunt)};
+        [[NSUserDefaults standardUserDefaults] setObject:dic forKey:kCheckCount];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }else{
+        [self setCountWithDayCount:[dic[@"dayCount"] integerValue]
+                        monthCount:[dic[@"monthCount"] integerValue]];
+    }
+
+}
+-(void)setCountWithDayCount:(NSInteger)dayCount monthCount:(NSInteger) monthCount{
+    self.monthLabel.text = [NSString stringWithFormat:@"本月工查验%@次",@(monthCount)];
+    self.dayLabel.text = [NSString stringWithFormat:@"今日工查验%@次",@(dayCount)];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(UIBarButtonItem *)settingBtn{
@@ -79,6 +110,39 @@
         NSString *versionNumber = [responseObject objectForKey:@"versionNumber"];
         NSArray *versionArray = [versionNumber componentsSeparatedByString:@"."];
         NSLog(@"responseObject %@", responseObject);
+        
+        NSDictionary *infoDic = [[NSBundle mainBundle]infoDictionary];
+        NSString *app_Version = [infoDic objectForKey:@"CFBundleShortVersionString"];
+        NSArray *currentArray = [app_Version componentsSeparatedByString:@"."];
+        NSLog(@"app_Version %@", app_Version);
+        
+
+        NSString *ignoreVersion = [[NSUserDefaults standardUserDefaults]objectForKey:kUserIgnoreVersionKey];
+        if (ignoreVersion != nil || [ignoreVersion isEqualToString:versionNumber]) {
+            return ;
+        }
+        
+        if (versionArray.count != currentArray.count) {
+            return ;
+        }
+        
+        int i = 0;
+        BOOL isneedUpdate = false;
+        for (; i < versionArray.count; i++) {
+            NSString *lastMajorVersion = versionArray[i];
+            NSString *currentMajorVersion = currentArray[i];
+            NSNumber *lastMajorVersionNum = @([lastMajorVersion integerValue]);
+            NSNumber *currentMajorVersionNum = @([currentMajorVersion integerValue]);
+            if (lastMajorVersionNum.integerValue > currentMajorVersionNum.integerValue) {
+                isneedUpdate = true;
+                break;
+            }
+        }
+        
+        if (!isneedUpdate) {
+            return;
+        }
+        
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         updataViewController *vc = [sb instantiateViewControllerWithIdentifier:@"updataViewController"];

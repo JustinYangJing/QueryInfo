@@ -11,4 +11,5 @@ pod "MBProgressHUD"
 pod "ReactiveCocoa"
 
 pod "ZBarSDK"
+
 end

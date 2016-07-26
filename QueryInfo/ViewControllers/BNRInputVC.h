@@ -12,4 +12,6 @@
 
 @property (nonatomic,copy) void (^inputComplete)(NSString *str);
 @property (nonatomic,copy) NSString *placeHolderStr;
+
+
 @end

@@ -15,6 +15,8 @@
 
 @property (nonatomic, copy) NSString    *tips;
 
+@property (nonatomic, assign) NSInteger dayCount;
+@property (nonatomic, assign) NSInteger monthCount;
 @end
 
 @implementation BNRSearchResultController
@@ -22,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self initData];
     self.title = @"查询结果";
     self.view.backgroundColor = [HETUIConfig colorFromHexRGB:@"6ea4f4"];
     
@@ -32,6 +34,21 @@
     self.searchNumLabel.text = _searchStr;
     
     [self searchNum:_searchStr];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSDictionary *dic = @{@"date":[[NSDate date] LocalDayISO8601String],@"dayCount":@(self.dayCount),@"monthCount":@(self.monthCount)};
+    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:kCheckCount];
+}
+-(void)initData{
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kCheckCount];
+    if (!dic) {
+        self.dayCount = 0;
+        self.monthCount = 0;
+        return;
+    }
+    self.dayCount = [dic[@"dayCount"] integerValue];
+    self.monthCount = [dic[@"monthCount"] integerValue];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +94,7 @@
        // NSLog(@"xxxx %@",responseObject);
         
         NSString *meg = [responseObject objectForKey:@"resultMsg"];
+        [self plusCount];
        // NSString *success = [responseObject objectForKey:@"success"];
         self.searchResultLabel.text = meg;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -84,8 +102,28 @@
     }];
     
 }
-
-
+-(void)plusCount{
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:kCheckCount];
+    if (!dic) {
+        self.dayCount++;
+        self.monthCount++;
+        return;
+    }
+    
+    NSString *today = [[NSDate date] LocalDayISO8601String];
+    NSString *saveDay = dic[@"date"];
+    if (![saveDay isEqualToString:today]) {//在这个界面中就夸天了
+        self.dayCount = 1;
+        if ([[saveDay substringToIndex:7] isEqualToString:[today substringToIndex:7]]) { //没有夸月
+            self.monthCount++;
+        }else{
+            self.monthCount = 1;
+        }
+    }else{
+        self.dayCount++;
+        self.monthCount++;
+    }
+}
 
 /*
 #pragma mark - Navigation

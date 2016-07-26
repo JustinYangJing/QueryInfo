@@ -206,6 +206,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="HL2-4h-dZt"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="dayLabel" destination="ooW-Y9-O9v" id="rfi-U4-Mbc"/>
+                        <outlet property="monthLabel" destination="2zd-Sa-Np0" id="pjW-DI-xjW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ct2-Ds-btn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -790,14 +794,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入运货单号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui5-xj-htb">
-                                <rect key="frame" x="24" y="46" width="272" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入运货单号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui5-xj-htb">
+                                <rect key="frame" x="24" y="46" width="272" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="272" id="StJ-Xe-rKL"/>
-                                    <constraint firstAttribute="height" constant="30" id="bb5-m1-V8v"/>
+                                    <constraint firstAttribute="height" constant="50" id="bb5-m1-V8v"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="StJ-Xe-rKL"/>
@@ -810,10 +814,11 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjz-Cs-aPH">
-                                <rect key="frame" x="24" y="84" width="109" height="30"/>
+                                <rect key="frame" x="24" y="176" width="128" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="2tv-7c-JJ2"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="扫描输入"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -830,7 +835,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-Rf-U0L">
-                                <rect key="frame" x="187" y="84" width="109" height="30"/>
+                                <rect key="frame" x="167.5" y="176" width="128" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="确定"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="191" y="106" width="109" height="30"/>
@@ -843,17 +849,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ui5-xj-htb" firstAttribute="leading" secondItem="dZA-W5-NNy" secondAttribute="leadingMargin" constant="8" id="2Ez-Xb-u3x"/>
-                            <constraint firstItem="Fjz-Cs-aPH" firstAttribute="width" secondItem="ui5-xj-htb" secondAttribute="width" multiplier="0.4" id="4fv-DT-DsD"/>
+                            <constraint firstItem="Fjz-Cs-aPH" firstAttribute="width" secondItem="ui5-xj-htb" secondAttribute="width" multiplier="0.47" id="4fv-DT-DsD"/>
                             <constraint firstItem="bN4-Rf-U0L" firstAttribute="trailing" secondItem="ui5-xj-htb" secondAttribute="trailing" id="8VW-hX-qS0"/>
                             <constraint firstItem="bN4-Rf-U0L" firstAttribute="width" secondItem="Fjz-Cs-aPH" secondAttribute="width" id="Agb-Yr-ThI"/>
                             <constraint firstItem="Fjz-Cs-aPH" firstAttribute="top" secondItem="ui5-xj-htb" secondAttribute="bottom" constant="30" id="As7-1c-uE7">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
-                            <constraint firstItem="bN4-Rf-U0L" firstAttribute="top" secondItem="ui5-xj-htb" secondAttribute="bottom" constant="8" id="EVs-BV-Gja">
+                            <constraint firstItem="bN4-Rf-U0L" firstAttribute="top" secondItem="ui5-xj-htb" secondAttribute="bottom" constant="80" id="EVs-BV-Gja">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
-                            <constraint firstItem="bN4-Rf-U0L" firstAttribute="width" secondItem="ui5-xj-htb" secondAttribute="width" multiplier="0.4" id="K8O-aX-u8u"/>
-                            <constraint firstItem="Fjz-Cs-aPH" firstAttribute="top" secondItem="ui5-xj-htb" secondAttribute="bottom" constant="8" id="Kz4-jR-ELT"/>
+                            <constraint firstItem="bN4-Rf-U0L" firstAttribute="width" secondItem="ui5-xj-htb" secondAttribute="width" multiplier="0.47" id="K8O-aX-u8u"/>
+                            <constraint firstItem="Fjz-Cs-aPH" firstAttribute="top" secondItem="ui5-xj-htb" secondAttribute="bottom" constant="80" id="Kz4-jR-ELT"/>
                             <constraint firstItem="Fjz-Cs-aPH" firstAttribute="leading" secondItem="ui5-xj-htb" secondAttribute="leading" id="Lyd-Nd-sU1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ui5-xj-htb" secondAttribute="trailing" constant="8" id="nql-QK-QyO"/>
                             <constraint firstItem="ui5-xj-htb" firstAttribute="top" secondItem="Uay-6b-Pdy" secondAttribute="bottom" constant="26" id="z6T-9d-1X8"/>

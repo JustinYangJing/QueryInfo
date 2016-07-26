@@ -25,12 +25,15 @@
     [self initViews];
 }
 -(void)initViews{
-    self.title = @"快递单输入";
+    self.title = @"快递单号输入";
+    self.textFeild.backgroundColor = [HETUIConfig colorFromHexRGB:@"003361" alpha:0.6];
+    self.textFeild.textColor = [UIColor whiteColor];
+    
     self.view.backgroundColor = [HETUIConfig colorFromHexRGB:@"6ea4f4"];
-    self.scanHandle.backgroundColor = [HETUIConfig colorFromHexRGB:@"2b58a9"];
-    self.scanHandle.layer.cornerRadius = 30/2.;
-    self.comfirmBtn.backgroundColor = [HETUIConfig colorFromHexRGB:@"2b58a9"];
-    self.comfirmBtn.layer.cornerRadius = 30/2.;
+    self.scanHandle.backgroundColor = [HETUIConfig colorFromHexRGB:@"ffffff" alpha:0.5];
+    self.scanHandle.layer.cornerRadius = 3.;
+    self.comfirmBtn.backgroundColor = [HETUIConfig colorFromHexRGB:@"ffffff"];
+    self.comfirmBtn.layer.cornerRadius = 3.;
     
     @weakify(self);
     [[RACObserve(self, tips) skip:1] subscribeNext:^(id x) {
@@ -48,6 +51,7 @@
 {
     [super viewWillAppear:animated];
     self.textFeild.text = @"";
+    [self.textFeild becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,21 +64,17 @@
 }
 
 - (IBAction)comfirmHandle:(id)sender {
-    
-    
-    
-    if (self.textFeild.text.length < 5) {
+    if (self.textFeild.text.length < 5 || self.textFeild.text.length > 30) {
         [self autoDismissTips:@"输入不符合要求"];
         return;
     }
     [self toSearchResultViewController];
-
 }
 
 -(void)autoDismissTips:(NSString *)tips{
     self.tips = nil;
     self.tips = tips;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tips = nil;
     });
 }

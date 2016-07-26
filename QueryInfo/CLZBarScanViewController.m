@@ -16,6 +16,7 @@
 #import "CLZBarScanViewController.h"
 #import "UIViewController+HETAdditions.h"
 #import "BNRInputNumVC.h"
+#import "BNRSearchResultController.h"
 @interface CLZBarScanViewController()<ZBarReaderDelegate,ZBarReaderViewDelegate>
 {
     UIImageView* scanZomeBack;
@@ -66,13 +67,13 @@
     
     [ readview addSubview : _scanView ];
   
-    _manualInputBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, VIEW_HEIGHT-35-20-64, VIEW_WIDTH-40, 35)];
+    _manualInputBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, VIEW_HEIGHT-40-20-64, VIEW_WIDTH-40, 40)];
     [_manualInputBtn setTitle:@"手动输入" forState:UIControlStateNormal];
-    [_manualInputBtn setTitleColor:[HETUIConfig colorFromHexRGB:@"303030"] forState:UIControlStateNormal];
-    _manualInputBtn.backgroundColor = [HETUIConfig colorFromHexRGB:@"295bb1"];
-    _manualInputBtn.layer.cornerRadius = 35/2.;
-    _manualInputBtn.layer.borderColor = [UIColor whiteColor].CGColor;
-    _manualInputBtn.layer.borderWidth = 0.5;
+    [_manualInputBtn setTitleColor:[HETUIConfig colorFromHexRGB:@"0f5fbe"] forState:UIControlStateNormal];
+    _manualInputBtn.backgroundColor = [HETUIConfig colorFromHexRGB:@"ffffff"];
+    _manualInputBtn.layer.cornerRadius = 3.;
+//    _manualInputBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _manualInputBtn.layer.borderWidth = 0.5;
     [readview addSubview:_manualInputBtn];
     [_manualInputBtn addTarget:self action:@selector(manualInputHandle:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -267,13 +268,25 @@
         NSString * resultStr = symbol.data;
         NSLog(@"scan resultStr %@",resultStr);
         
+        if (resultStr.length > 5) {
+            [self toSearchResultViewControllerWithContent:resultStr];
+            break;
+        }
         
     }
-    
   
-
-    
 }
+
+- (void)toSearchResultViewControllerWithContent:(NSString *)text
+{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BNRSearchResultController *vc0 = [sb instantiateViewControllerWithIdentifier:@"BNRSearchResultController"];
+    vc0.searchStr = text;
+    
+    [self.navigationController pushViewController:vc0 animated:true];
+}
+
 - (void) imagePickerController: (UIImagePickerController*) reader
  didFinishPickingMediaWithInfo: (NSDictionary*) info
 {

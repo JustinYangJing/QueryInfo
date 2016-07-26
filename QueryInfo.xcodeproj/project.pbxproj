@@ -20,6 +20,10 @@
 		19B7D3AB1D46CF87003FEDE5 /* logo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A21D46CF87003FEDE5 /* logo_02.png */; };
 		19B7D3AC1D46CF87003FEDE5 /* saomiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 19B7D3A31D46CF87003FEDE5 /* saomiao.png */; };
 		19B7D3AF1D46DCF4003FEDE5 /* updataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B7D3AE1D46DCF4003FEDE5 /* updataViewController.m */; };
+		1B827CAD1D47910A00FAB970 /* NSDate+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B827CAC1D47910A00FAB970 /* NSDate+SSToolkitAdditions.m */; };
+		1B827CB21D47951600FAB970 /* NSBundle+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B827CAF1D47951600FAB970 /* NSBundle+SSToolkitAdditions.m */; };
+		1B827CB31D47951600FAB970 /* NSData+SAMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B827CB11D47951600FAB970 /* NSData+SAMAdditions.m */; };
+		1B827CB61D47955100FAB970 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B827CB51D47955100FAB970 /* NSDate+Helpers.m */; };
 		1BF0DB6E1D45122C00453672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB6D1D45122C00453672 /* main.m */; };
 		1BF0DB711D45122C00453672 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DB701D45122C00453672 /* AppDelegate.m */; };
 		1BF0DB771D45122C00453672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF0DB751D45122C00453672 /* Main.storyboard */; };
@@ -67,6 +71,14 @@
 		19B7D3A31D46CF87003FEDE5 /* saomiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saomiao.png; sourceTree = "<group>"; };
 		19B7D3AD1D46DCF4003FEDE5 /* updataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = updataViewController.h; sourceTree = "<group>"; };
 		19B7D3AE1D46DCF4003FEDE5 /* updataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = updataViewController.m; sourceTree = "<group>"; };
+		1B827CAB1D47910A00FAB970 /* NSDate+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		1B827CAC1D47910A00FAB970 /* NSDate+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		1B827CAE1D47951600FAB970 /* NSBundle+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		1B827CAF1D47951600FAB970 /* NSBundle+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		1B827CB01D47951600FAB970 /* NSData+SAMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SAMAdditions.h"; sourceTree = "<group>"; };
+		1B827CB11D47951600FAB970 /* NSData+SAMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SAMAdditions.m"; sourceTree = "<group>"; };
+		1B827CB41D47955100FAB970 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
+		1B827CB51D47955100FAB970 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
 		1BF0DB691D45122C00453672 /* QueryInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueryInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF0DB6D1D45122C00453672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BF0DB6F1D45122C00453672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -263,6 +275,14 @@
 				1BF0DBC31D45770500453672 /* BNRServerInterface.m */,
 				1BF0DBCD1D45DFB300453672 /* BNRMacro.h */,
 				1BF0DBCE1D45DFB300453672 /* BNRMacro.m */,
+				1B827CB41D47955100FAB970 /* NSDate+Helpers.h */,
+				1B827CB51D47955100FAB970 /* NSDate+Helpers.m */,
+				1B827CAB1D47910A00FAB970 /* NSDate+SSToolkitAdditions.h */,
+				1B827CAC1D47910A00FAB970 /* NSDate+SSToolkitAdditions.m */,
+				1B827CAE1D47951600FAB970 /* NSBundle+SSToolkitAdditions.h */,
+				1B827CAF1D47951600FAB970 /* NSBundle+SSToolkitAdditions.m */,
+				1B827CB01D47951600FAB970 /* NSData+SAMAdditions.h */,
+				1B827CB11D47951600FAB970 /* NSData+SAMAdditions.m */,
 			);
 			path = Helps;
 			sourceTree = "<group>";
@@ -300,6 +320,7 @@
 				1BF0DB671D45122C00453672 /* Resources */,
 				A7CBB3A3434F8AD7FEAE07A6 /* [CP] Embed Pods Frameworks */,
 				3D37F95FF63F1599FB0D1E0C /* [CP] Copy Pods Resources */,
+				A6E13AFDB7B9A103113E5672 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -384,6 +405,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A6E13AFDB7B9A103113E5672 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A7CBB3A3434F8AD7FEAE07A6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,7 +461,9 @@
 				1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */,
 				1BF0DBC41D45770500453672 /* BNRServerInterface.m in Sources */,
 				19B7D3971D465BEA003FEDE5 /* BNRSearchResultController.m in Sources */,
+				1B827CB61D47955100FAB970 /* NSDate+Helpers.m in Sources */,
 				1BF0DB7A1D45122C00453672 /* QueryInfo.xcdatamodeld in Sources */,
+				1B827CB21D47951600FAB970 /* NSBundle+SSToolkitAdditions.m in Sources */,
 				1BF0DBB01D4548AA00453672 /* BNRBaseViewVC.m in Sources */,
 				1BF0DBBC1D4563E200453672 /* BNRInputVC.m in Sources */,
 				1BF0DBCC1D45A6B800453672 /* CCCommonHelp.m in Sources */,
@@ -433,11 +471,13 @@
 				1BF0DBAB1D452C0600453672 /* BNRTableViewCell.m in Sources */,
 				1BF0DBD51D46158A00453672 /* CLZBarScanViewController.m in Sources */,
 				1BF0DBA41D451DA500453672 /* UIViewController+HETAdditions.m in Sources */,
+				1B827CAD1D47910A00FAB970 /* NSDate+SSToolkitAdditions.m in Sources */,
 				1BF0DB711D45122C00453672 /* AppDelegate.m in Sources */,
 				1BF0DBA71D45259F00453672 /* BNRSettingVC.m in Sources */,
 				1BF0DBA01D451DA500453672 /* NSString+Util.m in Sources */,
 				1BF0DBA31D451DA500453672 /* UIImage+StrethImage.m in Sources */,
 				1BF0DBA21D451DA500453672 /* UIImage+HETJPGAdditions.m in Sources */,
+				1B827CB31D47951600FAB970 /* NSData+SAMAdditions.m in Sources */,
 				1BF0DBCF1D45DFB300453672 /* BNRMacro.m in Sources */,
 				1BF0DBB91D455FFB00453672 /* HETUIConfig.m in Sources */,
 				1BF0DB881D45161800453672 /* BNRMainVC.m in Sources */,
