@@ -38,12 +38,15 @@
            }
          ];
 
-        [[LocationManager sharedInstance]startLocate];
+   
         nav.viewControllers = @[vc0,vc1];
         self.window.rootViewController = nav;
         [self.window makeKeyAndVisible];
         
     }
+    
+    self.currentLocation = [LocationItem new];
+    [[LocationManager sharedInstance]startLocate];
     return YES;
 }
 

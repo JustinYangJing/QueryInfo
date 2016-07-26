@@ -78,6 +78,59 @@ static LocationManager *sharedInstance;
     item.locationDescription = GCJ02Location.description;
     item.creationTime = [NSDate date];
     //NSLog(@"insert item location:%f,%f",item.latitude, item.longitude);
+    // 获取当前所在的城市名
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    //根据经纬度反向地理编译出地址信息
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *array, NSError *error){
+        if (array.count > 0){
+            CLPlacemark *placemark = [array objectAtIndex:0];
+            //将获得的所有信息显示到label上
+            //self.location.text = placemark.name;
+            //获取城市
+            NSString *address = [NSString new];
+            NSString *city = placemark.locality;
+            NSString *subThoroughfare = placemark.subThoroughfare;
+            NSString *thoroughfare = placemark.thoroughfare;
+            NSString *subLocality = placemark.subLocality;
+            NSString *administrativeArea = placemark.administrativeArea;
+            NSString *subAdministrativeArea = placemark.subAdministrativeArea;
+            if (!city) {
+                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+                city = placemark.administrativeArea;
+            }
+            NSLog(@"city = %@", city);
+            if(administrativeArea != nil){
+                address = [NSString stringWithFormat:@"%@%@",address,administrativeArea];
+            }
+            if(subAdministrativeArea != nil){
+                address = [NSString stringWithFormat:@"%@-%@",address,subAdministrativeArea];
+            }
+            if(city != nil){
+                address = [NSString stringWithFormat:@"%@-%@",address,city];
+            }
+            if(subLocality != nil){
+                address = [NSString stringWithFormat:@"%@-%@",address,subLocality];
+            }
+            if(thoroughfare != nil){
+                address = [NSString stringWithFormat:@"%@-%@",address,thoroughfare];
+            }
+            if(subThoroughfare != nil){
+                address = [NSString stringWithFormat:@"%@-%@",address,subThoroughfare];
+            }
+            item.address = address;
+           // _cityLable.text = city;
+           // [_cityButton setTitle:city forState:UIControlStateNormal];
+        }
+        else if (error == nil && [array count] == 0)
+        {
+            NSLog(@"No results were returned.");
+        }
+        else if (error != nil)
+        {
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
+    
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {

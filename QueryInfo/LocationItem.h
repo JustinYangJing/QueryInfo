@@ -12,5 +12,6 @@
 @property (nonatomic, retain) NSDate *creationTime;
 @property double latitude;//纬度
 @property double longitude;//经度
+@property (nonatomic, strong) NSString *address;
 @property (nonatomic, retain) NSString *locationDescription;
 @end

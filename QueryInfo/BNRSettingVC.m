@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger,UserType) {
 }
 -(void)initData{
     self.dataArr = [NSMutableArray arrayWithCapacity:8];
-    self.userType = UserTypeDeliverOffice;
+    self.userType = UserTypePolice;
     NSArray *keys = @[@"用户类型",@"辖区",@"警号"];
     NSMutableArray *values = [NSMutableArray arrayWithObjects:@"公安部门",@"点击选择辖区",@"请输入警号", nil];
     [self.dataArr addObject:keys];
@@ -232,7 +232,7 @@ typedef NS_ENUM(NSInteger,UserType) {
 -(void)autoDismissTips:(NSString *)tips{
     self.tips = nil;
     self.tips = tips;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tips = nil;
     });
 }
@@ -276,27 +276,27 @@ typedef NS_ENUM(NSInteger,UserType) {
     
     [[NSUserDefaults standardUserDefaults] setObject:self.userInfo forKey:kUserInfoKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.navigationController popViewControllerAnimated:YES];
-//    self.tips = @"正在上传资料";
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-//    
-//    [manager GET:kUploadUserInfo parameters:finallyUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        self.tips = nil;
-//        NSNumber *result = [responseObject objectForKey:@"success"];
-//        if (result.boolValue ) {
-//            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }else{
-//            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
-//        }
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        [self autoDismissTips:@"请求地址出错"];
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }];
+   // [self.navigationController popViewControllerAnimated:YES];
+    self.tips = @"正在上传资料";
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    
+    [manager GET:kUploadUserInfo parameters:finallyUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.tips = nil;
+        NSNumber *result = [responseObject objectForKey:@"success"];
+        if (result.boolValue ) {
+            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self autoDismissTips:[responseObject objectForKey:@"resultMsg"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self autoDismissTips:@"请求地址出错"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 
 }
 

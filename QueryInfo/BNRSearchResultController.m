@@ -86,13 +86,15 @@
     double latitude = locationInfo.latitude;
     double logtitude = locationInfo.longitude;
     
+    NSString *addr = locationInfo.address;
     NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults]objectForKey:kUserInfoKey];
     NSMutableDictionary *mutaUserInfo = [[NSMutableDictionary alloc]initWithDictionary:userInfo];
     
     [mutaUserInfo setObject:textNum forKey:@"expressNo"];
     [mutaUserInfo setObject:[NSNumber numberWithDouble:latitude] forKey:@"latitude"];
     [mutaUserInfo setObject:[NSNumber numberWithDouble:logtitude] forKey:@"longitude"];
-
+    [mutaUserInfo setObject:addr forKey:@"addr"];
+    
     [manager GET:kCheckExpress parameters:mutaUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -100,6 +102,12 @@
        // NSLog(@"xxxx %@",responseObject);
         
         NSString *meg = [responseObject objectForKey:@"resultMsg"];
+        NSNumber *result = [responseObject objectForKey:@"success"];
+        if (!result.boolValue ) {
+            self.searchResultLabel.textColor = [UIColor yellowColor];
+        }else{
+            self.searchResultLabel.textColor = [UIColor whiteColor];
+        }
         [self plusCount];
        // NSString *success = [responseObject objectForKey:@"success"];
         self.searchResultLabel.text = meg;

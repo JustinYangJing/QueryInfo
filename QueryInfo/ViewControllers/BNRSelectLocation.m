@@ -36,11 +36,11 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    self.headLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.headLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 28)];
     self.headLabel.text = self.selectedLocation;
-    self.headLabel.font = [UIFont systemFontOfSize:13];
-    self.headLabel.backgroundColor = [UIColor clearColor];
-    self.headLabel.textColor = [HETUIConfig colorFromHexRGB:@"555555" alpha:0.5];
+    self.headLabel.font = [UIFont systemFontOfSize:18];
+    self.headLabel.backgroundColor = [HETUIConfig colorFromHexRGB:@"00b7e8" alpha:1];
+    self.headLabel.textColor = [UIColor whiteColor];
     self.tableView.tableHeaderView = self.headLabel;
 }
 
@@ -70,6 +70,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BNRegionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"regionCell" forIndexPath:indexPath];
     cell.addressLabel.text = [self.locationArr[indexPath.row] objectForKey:@"shortName"];
+    cell.addressLabel.textColor = [HETUIConfig colorFromHexRGB:@"555555" alpha:1];
     @weakify(self);
     cell.nextClicked = ^{
          @strongify(self);

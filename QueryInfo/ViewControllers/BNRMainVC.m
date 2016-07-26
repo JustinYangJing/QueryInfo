@@ -47,7 +47,7 @@
         NSInteger dayCount = 0;
         NSInteger monthCOunt = 0;
         if ([[saveDay substringToIndex:7] isEqualToString:[today substringToIndex:7]]) {
-            monthCOunt = [dic[@"monthCont"] integerValue];
+            monthCOunt = [dic[@"monthCount"] integerValue];
         }
         [self setCountWithDayCount:dayCount monthCount:monthCOunt];
         dic = @{@"date":today,@"dayCount":@(0),@"monthCount":@(monthCOunt)};
@@ -60,8 +60,8 @@
 
 }
 -(void)setCountWithDayCount:(NSInteger)dayCount monthCount:(NSInteger) monthCount{
-    self.monthLabel.text = [NSString stringWithFormat:@"本月工查验%@次",@(monthCount)];
-    self.dayLabel.text = [NSString stringWithFormat:@"今日工查验%@次",@(dayCount)];
+    self.monthLabel.text = [NSString stringWithFormat:@"%@",@(monthCount)];
+    self.dayLabel.text = [NSString stringWithFormat:@"%@",@(dayCount)];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
