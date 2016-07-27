@@ -56,11 +56,11 @@
 		1BF0DBD21D45E83000453672 /* BNRSelectFirmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD11D45E83000453672 /* BNRSelectFirmVC.m */; };
 		1BF0DBD51D46158A00453672 /* CLZBarScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */; };
 		1BF0DBD81D46326900453672 /* BNRInputNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0DBD71D46326900453672 /* BNRInputNumVC.m */; };
-		87B1EA4C8710FF6B1269D20F /* libPods-QueryInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA53116134066A6A2079E3D /* libPods-QueryInfo.a */; };
+		AD9828567536BF53DC2072B4 /* libPods-QueryInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 005C42AD217B350A526583CD /* libPods-QueryInfo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FCF6A9F7C142A92AC1EDD78 /* Pods-QueryInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		005C42AD217B350A526583CD /* libPods-QueryInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueryInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B7D3951D465BEA003FEDE5 /* BNRSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRSearchResultController.h; sourceTree = "<group>"; };
 		19B7D3961D465BEA003FEDE5 /* BNRSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSearchResultController.m; sourceTree = "<group>"; };
 		19B7D3981D467409003FEDE5 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 		1BF0DBD41D46158A00453672 /* CLZBarScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLZBarScanViewController.m; sourceTree = "<group>"; };
 		1BF0DBD61D46326900453672 /* BNRInputNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRInputNumVC.h; path = ViewControllers/BNRInputNumVC.h; sourceTree = "<group>"; };
 		1BF0DBD71D46326900453672 /* BNRInputNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRInputNumVC.m; path = ViewControllers/BNRInputNumVC.m; sourceTree = "<group>"; };
-		5FA53116134066A6A2079E3D /* libPods-QueryInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueryInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5F04D8F04927F89FD22E143 /* Pods-QueryInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.release.xcconfig"; sourceTree = "<group>"; };
+		2CC471FFFB202BE94E206FDD /* Pods-QueryInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		A6E83EC44504BB26DEBAC212 /* Pods-QueryInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueryInfo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B1EA4C8710FF6B1269D20F /* libPods-QueryInfo.a in Frameworks */,
+				AD9828567536BF53DC2072B4 /* libPods-QueryInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +194,8 @@
 			children = (
 				1BF0DB6B1D45122C00453672 /* QueryInfo */,
 				1BF0DB6A1D45122C00453672 /* Products */,
-				D95EC15ADE0281B9DE25ED05 /* Pods */,
-				614D6D179B00D8A7AAD5F4E6 /* Frameworks */,
+				8361B5A07FCBAD633EB9CEE8 /* Pods */,
+				8D2584FBF2C9AC2D296793FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,21 +307,21 @@
 			path = Helps;
 			sourceTree = "<group>";
 		};
-		614D6D179B00D8A7AAD5F4E6 /* Frameworks */ = {
+		8361B5A07FCBAD633EB9CEE8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5FA53116134066A6A2079E3D /* libPods-QueryInfo.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D95EC15ADE0281B9DE25ED05 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0FCF6A9F7C142A92AC1EDD78 /* Pods-QueryInfo.debug.xcconfig */,
-				C5F04D8F04927F89FD22E143 /* Pods-QueryInfo.release.xcconfig */,
+				2CC471FFFB202BE94E206FDD /* Pods-QueryInfo.debug.xcconfig */,
+				A6E83EC44504BB26DEBAC212 /* Pods-QueryInfo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D2584FBF2C9AC2D296793FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				005C42AD217B350A526583CD /* libPods-QueryInfo.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +337,6 @@
 				1BF0DB671D45122C00453672 /* Resources */,
 				A7CBB3A3434F8AD7FEAE07A6 /* [CP] Embed Pods Frameworks */,
 				3D37F95FF63F1599FB0D1E0C /* [CP] Copy Pods Resources */,
-				F4B1E8C54120CBD127518066 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,6 +358,7 @@
 				TargetAttributes = {
 					1BF0DB681D45122C00453672 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = B36LSC79E6;
 					};
 				};
 			};
@@ -450,21 +450,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F4B1E8C54120CBD127518066 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QueryInfo/Pods-QueryInfo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -618,7 +603,7 @@
 		};
 		1BF0DB841D45122C00453672 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FCF6A9F7C142A92AC1EDD78 /* Pods-QueryInfo.debug.xcconfig */;
+			baseConfigurationReference = 2CC471FFFB202BE94E206FDD /* Pods-QueryInfo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -628,7 +613,7 @@
 				INFOPLIST_FILE = QueryInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.runsdata.z1zren.guangxi.360zhao.iphone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.kuaijiandan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -636,7 +621,7 @@
 		};
 		1BF0DB851D45122C00453672 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5F04D8F04927F89FD22E143 /* Pods-QueryInfo.release.xcconfig */;
+			baseConfigurationReference = A6E83EC44504BB26DEBAC212 /* Pods-QueryInfo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -646,7 +631,7 @@
 				INFOPLIST_FILE = QueryInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.runsdata.z1zren.guangxi.360zhao.iphone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanqixin.kuaijiandan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

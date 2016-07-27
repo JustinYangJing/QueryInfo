@@ -12,6 +12,6 @@ NSString     *kUserInfoKey          =       @"userInfoKey";
 
 NSString     *kUserIgnoreVersionKey = @"userIgnoreVersionKey";
 
-NSString     *kAppItuneStoreAddress = @"www.baidu.com";
+NSString     *kAppItuneStoreAddress = @"https://itunes.apple.com/us/app/kuai-jian-dan/id1137980653?l=zh&ls=1&mt=8";
 
 NSString     *kCheckCount           =  @"checkCount";

@@ -98,7 +98,9 @@
     [mutaUserInfo setObject:textNum forKey:@"expressNo"];
     [mutaUserInfo setObject:[NSNumber numberWithDouble:latitude] forKey:@"latitude"];
     [mutaUserInfo setObject:[NSNumber numberWithDouble:logtitude] forKey:@"longitude"];
-    [mutaUserInfo setObject:addr forKey:@"addr"];
+    if (addr) {
+        [mutaUserInfo setObject:addr forKey:@"addr"];
+    }
     
     [manager GET:kCheckExpress parameters:mutaUserInfo progress:^(NSProgress * _Nonnull downloadProgress) {
         
