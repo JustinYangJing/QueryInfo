@@ -224,7 +224,7 @@ typedef NS_ENUM(NSInteger,UserType) {
         [self.navigationController pushViewController:vc animated:YES];
        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self autoDismissTips:@"请求地址出错"];
+        [self autoDismissTips:@"网络连接错误"];
     }];
 
 }
@@ -294,7 +294,7 @@ typedef NS_ENUM(NSInteger,UserType) {
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self autoDismissTips:@"请求地址出错"];
+        [self autoDismissTips:@"网络连接错误"];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 

@@ -69,7 +69,7 @@
 -(void)autoDismissTips:(NSString *)tips{
     self.tips = nil;
     self.tips = tips;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tips = nil;
     });
 }
@@ -88,6 +88,11 @@
     
     NSString *addr = locationInfo.address;
     NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults]objectForKey:kUserInfoKey];
+    if (userInfo == nil) {
+        [self autoDismissTips:@"请设置用户信息。"];
+        return;
+    }
+    
     NSMutableDictionary *mutaUserInfo = [[NSMutableDictionary alloc]initWithDictionary:userInfo];
     
     [mutaUserInfo setObject:textNum forKey:@"expressNo"];
